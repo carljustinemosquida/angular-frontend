@@ -1,0 +1,10 @@
+<ngx-charts-pie-grid *ngIf="fetchedTotalVoters && fetchedTotalVoted"
+  [view]="pieview"
+  [scheme]="colorScheme"
+  [results]="totalVoted"
+  [label]="showLabels"
+  [customColors]="customColors"
+  [designatedTotal]="totalVoters"
+  (select)="onSelect($event)" 
+  style="color: white;">
+</ngx-charts-pie-grid>

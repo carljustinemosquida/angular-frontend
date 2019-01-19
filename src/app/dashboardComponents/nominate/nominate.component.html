@@ -1,0 +1,67 @@
+<div style="width: 60%; height: auto;">
+	<mat-card >
+		<mat-card-title>President</mat-card-title>
+		<form #nominateForm="ngForm" (submit)="onNominateMethod(nominateForm)">
+			<div style="display: inline-block;">
+				<!-- lrn -->
+				<mat-form-field style="width:100%;">
+	        		<input  matInput [(ngModel)]="lrn" name="lrn" placeholder="Learners Referrence Number(LRN)">
+	        	</mat-form-field>
+	        	&nbsp;
+	        	<!-- fullname -->
+				<mat-form-field style="width:100%;">
+	        		<input  matInput [(ngModel)]="fullName" name="fullname" placeholder="Full Name">
+	        	</mat-form-field>
+	        	&nbsp;
+	        	<!-- partylist -->
+	        	<mat-form-field style="width:100%;">
+				  <mat-select matInput [(ngModel)]="party" name="party" placeholder="Select Partylist">
+				    <mat-option value="democratic">Democratic</mat-option>
+				    <mat-option value="progressive">Progressive</mat-option>
+				  </mat-select>
+				</mat-form-field>
+				&nbsp;
+				<!-- gradelevel -->
+				<mat-form-field style="width:100%;">
+				  <mat-select matInput [(ngModel)]="gradeLevel" name="gradeLevel" placeholder="Select Grade Level">
+				    <mat-option value="7">7</mat-option>
+				    <mat-option value="8">8</mat-option>
+				    <mat-option value="9">9</mat-option>
+				    <mat-option value="10">10</mat-option>
+				    <mat-option value="11">11</mat-option>
+				    <mat-option value="12">12</mat-option>
+				  </mat-select>
+				</mat-form-field>
+				&nbsp;
+				<!-- section -->
+				<mat-form-field style="width:100%;">
+	        		<input  matInput [(ngModel)]="section" name="section" placeholder="Section">
+	        	</mat-form-field>
+	        	&nbsp;
+	        	<!-- position -->
+				<mat-form-field style="width:100%;">
+				  <mat-select matInput [(ngModel)]="position" name="position" placeholder="Select Position Running For">
+				     <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+					    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+					    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+					    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+					    <mat-option value="Tresurer">{{ 'tresurer '| titlecase }}</mat-option>
+					    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+					  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+					  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+					  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+					  	<mat-option value="G10 Representative">{{'g10 representative' | titlecase }}</mat-option>
+					  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+					  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+				  </mat-select>
+				</mat-form-field>	    	
+				<br><br>
+			</div>    
+	        <button style="display: block; width: 100%; background-color: green; color:white;"type="submit" mat-flat-button  >Submit</button>
+		</form>
+	</mat-card> 
+</div>
+	
+
+
+

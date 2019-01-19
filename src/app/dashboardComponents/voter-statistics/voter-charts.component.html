@@ -1,0 +1,62 @@
+<mat-grid-list cols="5" rowheight="3:2" gutterSize="10px">     
+  <!-- G7 Voters -->
+    <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1">
+        <app-voter-pie-chart style="height: 100%; width: 100%" [grade]="'7'"></app-voter-pie-chart>
+    </mat-grid-tile>
+
+  <!-- G8 Voters -->
+  <main [class]="theme">
+    <mat-grid-tile 
+        [colspan]="1"
+        [rowspan]="1">
+        <app-voter-pie-chart style="height: 100%; width: 100%" [grade]="'8'"></app-voter-pie-chart>
+    </mat-grid-tile>
+  </main>
+
+  <!-- G9 Voters -->
+  <main [class]="theme">
+    <mat-grid-tile 
+        [colspan]="1"
+        [rowspan]="1">
+        <app-voter-pie-chart style="height: 100%; width: 100%" [grade]="'9'"></app-voter-pie-chart>
+    </mat-grid-tile>
+  </main>
+  
+  <!-- All Voters -->
+  <main [class]="theme">
+    <mat-grid-tile 
+        [colspan]="2"
+        [rowspan]="2">
+        <app-voter-pie-chart style="height: 100%; width: 100%" [grade]="'all'"></app-voter-pie-chart>
+    </mat-grid-tile>
+  </main>
+
+  <!-- G10 Voters -->
+  <main [class]="theme">
+    <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1">
+        <app-voter-pie-chart style="height: 100%; width: 100%" [grade]="'10'"></app-voter-pie-chart>
+    </mat-grid-tile>
+  </main>
+
+  <!-- G11 Voters -->
+  <main [class]="theme">
+    <mat-grid-tile 
+        [colspan]="1"
+        [rowspan]="1">
+        <app-voter-pie-chart style="height: 100%; width: 100%" [grade]="'11'"></app-voter-pie-chart>
+    </mat-grid-tile>
+  </main>
+
+  <!-- G12 Voters -->
+  <main [class]="theme">
+    <mat-grid-tile 
+        [colspan]="1"
+        [rowspan]="1">
+        <app-voter-pie-chart style="height: 100%; width: 100%" [grade]="'12'"></app-voter-pie-chart>
+    </mat-grid-tile>
+  </main>
+</mat-grid-list>

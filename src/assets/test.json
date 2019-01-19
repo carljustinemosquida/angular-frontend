@@ -1,0 +1,38 @@
+ {
+    "president": [
+        {"party": "a", "name": "carl"," lrn":"222"},
+        {"party": "b", "name": "xander", "lrn":"3333"}
+    ],
+
+    "vicePresident": [
+        {"party": "a", "name": "carliieee"," lrn":"222"},
+        {"party": "b", "name": "xandereee", "lrn":"3333"}
+    ],
+
+    "secretary": [
+         {"party": "a", "name": "caewewerl"," lrn":"222"},
+         {"party": "b", "name": "xandweweer", "lrn":"3333"}
+    ],
+
+    "treasurer": [
+        {"party": "a", "name": "carliieee"," lrn":"222"},
+        {"party": "b", "name": "xandereee", "lrn":"3333"}
+    ],
+
+    "auditor": [
+        {"party": "a", "name": "carliieee"," lrn":"222"},
+        {"party": "b", "name": "xandereee", "lrn":"3333"}
+    ],
+
+    "Public Information Officer": [
+        {"party": "a", "name": "carliieee"," lrn":"222"},
+        {"party": "b", "name": "xandereee", "lrn":"3333"}
+    ],
+
+    "Peace Officer": [
+        {"party": "a", "name": "carliieee"," lrn":"222"},
+        {"party": "b", "name": "xandereee", "lrn":"3333"}
+    ]
+
+
+}

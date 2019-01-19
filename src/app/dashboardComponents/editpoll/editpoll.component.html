@@ -1,0 +1,11 @@
+<form>
+  <h4>mat-select</h4>
+  <mat-form-field>
+    <mat-select placeholder="Position" [(ngModel)]="position" name="postion">
+      <mat-option *ngFor="let position of positions" [value]="position.value">
+        {{position.value}}
+      </mat-option>
+    </mat-select>
+    {{position}}
+  </mat-form-field>
+</form>  

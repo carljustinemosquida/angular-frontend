@@ -1,0 +1,46 @@
+<mat-card *ngIf=" isElectionEnded ;else deleteElection">
+	<div>
+		<h2>DROP ELECTION DATABASE</h2>
+		<br>
+		<p>Are you sure you want to delete everything??</p>
+		<form>
+			<button (click)="deleteDbElection()" type="submit" class="btn-info">DELETE ELECTION DATABASE</button>
+		</form>
+	</div>
+</mat-card>	
+
+<ng-template #deleteElection>
+	<mat-card>
+		<div *ngIf="hasNoElection; else hasElectionTemplate">
+			<h2>No Election has been made yet !</h2>
+			<br>
+			<p>Want to get started ?</p>
+			<form>
+				<button (click)="createElection()" type="submit" class="btn-success">CREATE ELECTION DATABASE</button>
+			</form>
+		</div>
+
+		<ng-template #hasElectionTemplate>
+			<div style="display:inline-block;" *ngIf="!electionStarted; else electionhasstarted">
+				<br>
+				<br>
+				<p>Tap to start </p>
+				<br>
+				<form>
+					<button (click)="startElection()" type="submit" class="btn-success" >START ELECTION </button>
+				</form>
+			</div>
+			<ng-template #electionhasstarted>
+				<div style="display:inline-block;">	 <br>
+				<br>
+				<p>Tap to start </p>
+				<br>
+				<form>
+					<button (click)="endElection()" type="submit" class="btn-info" >END ELECTION</button>
+				</form>
+			</div>
+			</ng-template>
+			<br><br>
+		</ng-template>
+	</mat-card> 
+</ng-template>	

@@ -1,0 +1,923 @@
+<!-- {{candidateData.presidents | json}} -->
+
+<table >
+  <tr>
+    <th *ngFor="let column of displayedColumns">{{column}}</th>
+     
+  </tr>
+
+    <tr *ngFor="let candidate of candidateData.presidents ">
+    
+	    <!-- position -->
+	    <td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.position" name="position" >
+			    <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+			    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+			    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+			    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+			    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+			  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G10 Representative">{{'g10 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+	    </td>
+	    <!-- lrn -->
+	    <td>
+			<mat-form-field style="width:100%;">
+	    		<input type="number" matInput [(ngModel)]="candidate.lrn" name="lrn" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>	
+	    <!-- fullname -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.fullName" name="fullName"  >
+	    	</mat-form-field>
+	    	&nbsp;
+	    
+	    </td>		
+	    <!-- partylist -->
+	    <td>
+	    	<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.party" name="party" >
+			    <mat-option value="democratic">Democratic</mat-option>
+			    <mat-option value="progressive">Progressive</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- gradelevel -->
+		<td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.gradeLevel" name="gradeLevel" [(placeholder)]="candidate.gradeLevel" >
+			    <mat-option value="7">7</mat-option>
+			    <mat-option value="8">8</mat-option>
+			    <mat-option value="9">9</mat-option>
+			    <mat-option value="10">10</mat-option>
+			    <mat-option value="11">11</mat-option>
+			    <mat-option value="12">12</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- section -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.section" name="section" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>
+
+	    <td>  
+	        <button (click)="onUpdate(candidate._id, candidate.lrn, candidate.fullName, candidate.party, candidate.gradeLevel, candidate.section, candidate.position)" class="btn-success">Update</button>
+	    </td>
+	    <td>
+	      <button (click)="onDelete(candidate._id)" class="btn-info">Remove</button>
+	    </td>
+    </tr>
+
+    <tr *ngFor="let candidate of candidateData.vicePresidents ">
+    
+	    <!-- position -->
+	    <td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.position" name="position" >
+			    <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+			    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+			    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+			    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+			    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+			  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G10 Representative">{{'g10 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+	    </td>
+	    <!-- lrn -->
+	    <td>
+			<mat-form-field style="width:100%;">
+	    		<input type="number" matInput [(ngModel)]="candidate.lrn" name="lrn" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>	
+	    <!-- fullname -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.fullName" name="fullName"  >
+	    	</mat-form-field>
+	    	&nbsp;
+	    
+	    </td>		
+	    <!-- partylist -->
+	    <td>
+	    	<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.party" name="party" >
+			    <mat-option value="democratic">Democratic</mat-option>
+			    <mat-option value="progressive">Progressive</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- gradelevel -->
+		<td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.gradeLevel" name="gradeLevel" [(placeholder)]="candidate.gradeLevel" >
+			    <mat-option value="7">7</mat-option>
+			    <mat-option value="8">8</mat-option>
+			    <mat-option value="9">9</mat-option>
+			    <mat-option value="10">10</mat-option>
+			    <mat-option value="11">11</mat-option>
+			    <mat-option value="12">12</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- section -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.section" name="section" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>
+
+	    <td>  
+	        <button (click)="onUpdate(candidate._id, candidate.lrn, candidate.fullName, candidate.party, candidate.gradeLevel, candidate.section, candidate.position)" class="btn-success">Update</button>
+	    </td>
+	    <td>
+	      <button (click)="onDelete(candidate._id)" class="btn-info">Remove</button>
+	    </td>
+    </tr>
+
+    <tr *ngFor="let candidate of candidateData.secretaries ">
+    
+	    <!-- position -->
+	    <td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.position" name="position" >
+			    <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+			    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+			    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+			    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+			    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+			  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G10 Representative">{{'g10 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+	    </td>
+	    <!-- lrn -->
+	    <td>
+			<mat-form-field style="width:100%;">
+	    		<input type="number" matInput [(ngModel)]="candidate.lrn" name="lrn" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>	
+	    <!-- fullname -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.fullName" name="fullName"  >
+	    	</mat-form-field>
+	    	&nbsp;
+	    
+	    </td>		
+	    <!-- partylist -->
+	    <td>
+	    	<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.party" name="party" >
+			    <mat-option value="democratic">Democratic</mat-option>
+			    <mat-option value="progressive">Progressive</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- gradelevel -->
+		<td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.gradeLevel" name="gradeLevel" [(placeholder)]="candidate.gradeLevel" >
+			    <mat-option value="7">7</mat-option>
+			    <mat-option value="8">8</mat-option>
+			    <mat-option value="9">9</mat-option>
+			    <mat-option value="10">10</mat-option>
+			    <mat-option value="11">11</mat-option>
+			    <mat-option value="12">12</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- section -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.section" name="section" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>
+
+	    <td>  
+	        <button (click)="onUpdate(candidate._id, candidate.lrn, candidate.fullName, candidate.party, candidate.gradeLevel, candidate.section, candidate.position)" class="btn-success">Update</button>
+	    </td>
+	    <td>
+	      <button (click)="onDelete(candidate._id)" class="btn-info">Remove</button>
+	    </td>
+    </tr>
+
+    <tr *ngFor="let candidate of candidateData.auditors ">
+    
+	    <!-- position -->
+	    <td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.position" name="position" >
+			    <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+			    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+			    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+			    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+			    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+			  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G10 Representative">{{'g10 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+	    </td>
+	    <!-- lrn -->
+	    <td>
+			<mat-form-field style="width:100%;">
+	    		<input type="number" matInput [(ngModel)]="candidate.lrn" name="lrn" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>	
+	    <!-- fullname -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.fullName" name="fullName"  >
+	    	</mat-form-field>
+	    	&nbsp;
+	    
+	    </td>		
+	    <!-- partylist -->
+	    <td>
+	    	<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.party" name="party" >
+			    <mat-option value="democratic">Democratic</mat-option>
+			    <mat-option value="progressive">Progressive</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- gradelevel -->
+		<td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.gradeLevel" name="gradeLevel" [(placeholder)]="candidate.gradeLevel" >
+			    <mat-option value="7">7</mat-option>
+			    <mat-option value="8">8</mat-option>
+			    <mat-option value="9">9</mat-option>
+			    <mat-option value="10">10</mat-option>
+			    <mat-option value="11">11</mat-option>
+			    <mat-option value="12">12</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- section -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.section" name="section" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>
+
+	    <td>  
+	        <button (click)="onUpdate(candidate._id, candidate.lrn, candidate.fullName, candidate.party, candidate.gradeLevel, candidate.section, candidate.position)" class="btn-success">Update</button>
+	    </td>
+	    <td>
+	      <button (click)="onDelete(candidate._id)" class="btn-info">Remove</button>
+	    </td>
+    </tr>
+
+    <tr *ngFor="let candidate of candidateData.treasurers ">
+    
+	    <!-- position -->
+	    <td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.position" name="position" >
+			    <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+			    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+			    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+			    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+			    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+			  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G10 Representative">{{'g10 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+	    </td>
+	    <!-- lrn -->
+	    <td>
+			<mat-form-field style="width:100%;">
+	    		<input type="number" matInput [(ngModel)]="candidate.lrn" name="lrn" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>	
+	    <!-- fullname -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.fullName" name="fullName"  >
+	    	</mat-form-field>
+	    	&nbsp;
+	    
+	    </td>		
+	    <!-- partylist -->
+	    <td>
+	    	<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.party" name="party" >
+			    <mat-option value="democratic">Democratic</mat-option>
+			    <mat-option value="progressive">Progressive</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- gradelevel -->
+		<td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.gradeLevel" name="gradeLevel" [(placeholder)]="candidate.gradeLevel" >
+			    <mat-option value="7">7</mat-option>
+			    <mat-option value="8">8</mat-option>
+			    <mat-option value="9">9</mat-option>
+			    <mat-option value="10">10</mat-option>
+			    <mat-option value="11">11</mat-option>
+			    <mat-option value="12">12</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- section -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.section" name="section" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>
+
+	    <td>  
+	        <button (click)="onUpdate(candidate._id, candidate.lrn, candidate.fullName, candidate.party, candidate.gradeLevel, candidate.section, candidate.position)" class="btn-success">Update</button>
+	    </td>
+	    <td>
+	      <button (click)="onDelete(candidate._id)" class="btn-info">Remove</button>
+	    </td>
+    </tr>
+
+    <tr *ngFor="let candidate of candidateData.pios ">
+    
+	    <!-- position -->
+	    <td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.position" name="position" >
+			    <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+			    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+			    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+			    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+			    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+			  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G10 Representative">{{'g10 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+	    </td>
+	    <!-- lrn -->
+	    <td>
+			<mat-form-field style="width:100%;">
+	    		<input type="number" matInput [(ngModel)]="candidate.lrn" name="lrn" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>	
+	    <!-- fullname -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.fullName" name="fullName"  >
+	    	</mat-form-field>
+	    	&nbsp;
+	    
+	    </td>		
+	    <!-- partylist -->
+	    <td>
+	    	<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.party" name="party" >
+			    <mat-option value="democratic">Democratic</mat-option>
+			    <mat-option value="progressive">Progressive</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- gradelevel -->
+		<td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.gradeLevel" name="gradeLevel" [(placeholder)]="candidate.gradeLevel" >
+			    <mat-option value="7">7</mat-option>
+			    <mat-option value="8">8</mat-option>
+			    <mat-option value="9">9</mat-option>
+			    <mat-option value="10">10</mat-option>
+			    <mat-option value="11">11</mat-option>
+			    <mat-option value="12">12</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- section -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.section" name="section" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>
+
+	    <td>  
+	        <button (click)="onUpdate(candidate._id, candidate.lrn, candidate.fullName, candidate.party, candidate.gradeLevel, candidate.section, candidate.position)" class="btn-success">Update</button>
+	    </td>
+	    <td>
+	      <button (click)="onDelete(candidate._id)" class="btn-info">Remove</button>
+	    </td>
+    </tr>
+
+    <tr *ngFor="let candidate of candidateData.g7rep ">
+    
+	    <!-- position -->
+	    <td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.position" name="position" >
+			    <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+			    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+			    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+			    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+			    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+			  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G10 Representative">{{'g10 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+	    </td>
+	    <!-- lrn -->
+	    <td>
+			<mat-form-field style="width:100%;">
+	    		<input type="number" matInput [(ngModel)]="candidate.lrn" name="lrn" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>	
+	    <!-- fullname -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.fullName" name="fullName"  >
+	    	</mat-form-field>
+	    	&nbsp;
+	    
+	    </td>		
+	    <!-- partylist -->
+	    <td>
+	    	<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.party" name="party" >
+			    <mat-option value="democratic">Democratic</mat-option>
+			    <mat-option value="progressive">Progressive</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- gradelevel -->
+		<td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.gradeLevel" name="gradeLevel" [(placeholder)]="candidate.gradeLevel" >
+			    <mat-option value="7">7</mat-option>
+			    <mat-option value="8">8</mat-option>
+			    <mat-option value="9">9</mat-option>
+			    <mat-option value="10">10</mat-option>
+			    <mat-option value="11">11</mat-option>
+			    <mat-option value="12">12</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- section -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.section" name="section" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>
+
+	    <td>  
+	        <button (click)="onUpdate(candidate._id, candidate.lrn, candidate.fullName, candidate.party, candidate.gradeLevel, candidate.section, candidate.position)" class="btn-success">Update</button>
+	    </td>
+	    <td>
+	      <button (click)="onDelete(candidate._id)" class="btn-info">Remove</button>
+	    </td>
+    </tr>
+
+    <tr *ngFor="let candidate of candidateData.g8rep ">
+    
+	    <!-- position -->
+	    <td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.position" name="position" >
+			    <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+			    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+			    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+			    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+			    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+			  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G10 Representative">{{'g10 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+	    </td>
+	    <!-- lrn -->
+	    <td>
+			<mat-form-field style="width:100%;">
+	    		<input type="number" matInput [(ngModel)]="candidate.lrn" name="lrn" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>	
+	    <!-- fullname -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.fullName" name="fullName"  >
+	    	</mat-form-field>
+	    	&nbsp;
+	    
+	    </td>		
+	    <!-- partylist -->
+	    <td>
+	    	<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.party" name="party" >
+			    <mat-option value="democratic">Democratic</mat-option>
+			    <mat-option value="progressive">Progressive</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- gradelevel -->
+		<td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.gradeLevel" name="gradeLevel" [(placeholder)]="candidate.gradeLevel" >
+			    <mat-option value="7">7</mat-option>
+			    <mat-option value="8">8</mat-option>
+			    <mat-option value="9">9</mat-option>
+			    <mat-option value="10">10</mat-option>
+			    <mat-option value="11">11</mat-option>
+			    <mat-option value="12">12</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- section -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.section" name="section" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>
+
+	    <td>  
+	        <button (click)="onUpdate(candidate._id, candidate.lrn, candidate.fullName, candidate.party, candidate.gradeLevel, candidate.section, candidate.position)" class="btn-success">Update</button>
+	    </td>
+	    <td>
+	      <button (click)="onDelete(candidate._id)" class="btn-info">Remove</button>
+	    </td>
+    </tr>
+
+    <tr *ngFor="let candidate of candidateData.g9rep ">
+    
+	    <!-- position -->
+	    <td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.position" name="position" >
+			    <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+			    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+			    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+			    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+			    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+			  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G10 Rrepresentative">{{'g10 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+	    </td>
+	    <!-- lrn -->
+	    <td>
+			<mat-form-field style="width:100%;">
+	    		<input type="number" matInput [(ngModel)]="candidate.lrn" name="lrn" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>	
+	    <!-- fullname -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.fullName" name="fullName"  >
+	    	</mat-form-field>
+	    	&nbsp;
+	    
+	    </td>		
+	    <!-- partylist -->
+	    <td>
+	    	<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.party" name="party" >
+			    <mat-option value="democratic">Democratic</mat-option>
+			    <mat-option value="progressive">Progressive</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- gradelevel -->
+		<td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.gradeLevel" name="gradeLevel" [(placeholder)]="candidate.gradeLevel" >
+			    <mat-option value="7">7</mat-option>
+			    <mat-option value="8">8</mat-option>
+			    <mat-option value="9">9</mat-option>
+			    <mat-option value="10">10</mat-option>
+			    <mat-option value="11">11</mat-option>
+			    <mat-option value="12">12</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- section -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.section" name="section" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>
+
+	    <td>  
+	        <button (click)="onUpdate(candidate._id, candidate.lrn, candidate.fullName, candidate.party, candidate.gradeLevel, candidate.section, candidate.position)" class="btn-success">Update</button>
+	    </td>
+	    <td>
+	      <button (click)="onDelete(candidate._id)" class="btn-info">Remove</button>
+	    </td>
+    </tr>
+
+    <tr *ngFor="let candidate of candidateData.g10rep ">
+    
+	    <!-- position -->
+	    <td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.position" name="position" >
+			    <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+			    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+			    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+			    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+			    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+			  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G10 Representative">{{'g10 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+	    </td>
+	    <!-- lrn -->
+	    <td>
+			<mat-form-field style="width:100%;">
+	    		<input type="number" matInput [(ngModel)]="candidate.lrn" name="lrn" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>	
+	    <!-- fullname -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.fullName" name="fullName"  >
+	    	</mat-form-field>
+	    	&nbsp;
+	    
+	    </td>		
+	    <!-- partylist -->
+	    <td>
+	    	<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.party" name="party" >
+			    <mat-option value="democratic">Democratic</mat-option>
+			    <mat-option value="progressive">Progressive</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- gradelevel -->
+		<td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.gradeLevel" name="gradeLevel" [(placeholder)]="candidate.gradeLevel" >
+			    <mat-option value="7">7</mat-option>
+			    <mat-option value="8">8</mat-option>
+			    <mat-option value="9">9</mat-option>
+			    <mat-option value="10">10</mat-option>
+			    <mat-option value="11">11</mat-option>
+			    <mat-option value="12">12</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- section -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.section" name="section" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>
+
+	    <td>  
+	        <button (click)="onUpdate(candidate._id, candidate.lrn, candidate.fullName, candidate.party, candidate.gradeLevel, candidate.section, candidate.position)" class="btn-success">Update</button>
+	    </td>
+	    <td>
+	      <button (click)="onDelete(candidate._id)" class="btn-info">Remove</button>
+	    </td>
+    </tr>
+
+    <tr *ngFor="let candidate of candidateData.g11rep ">
+
+    	 <!-- position -->
+	    <td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.position" name="position" >
+			    <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+			    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+			    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+			    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+			    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+			  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G10 Representative">{{'g10 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+	    </td>
+	    
+	    <!-- lrn -->
+	    <td>
+			<mat-form-field style="width:100%;">
+	    		<input type="number" matInput [(ngModel)]="candidate.lrn" name="lrn" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>	
+	    <!-- fullname -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.fullName" name="fullName"  >
+	    	</mat-form-field>
+	    	&nbsp;
+	    
+	    </td>		
+	    <!-- partylist -->
+	    <td>
+	    	<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.party" name="party" >
+			    <mat-option value="democratic">Democratic</mat-option>
+			    <mat-option value="progressive">Progressive</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- gradelevel -->
+		<td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.gradeLevel" name="gradeLevel" [(placeholder)]="candidate.gradeLevel" >
+			    <mat-option value="7">7</mat-option>
+			    <mat-option value="8">8</mat-option>
+			    <mat-option value="9">9</mat-option>
+			    <mat-option value="10">10</mat-option>
+			    <mat-option value="11">11</mat-option>
+			    <mat-option value="12">12</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- section -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.section" name="section" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>
+
+	    <td>  
+	        <button (click)="onUpdate(candidate._id, candidate.lrn, candidate.fullName, candidate.party, candidate.gradeLevel, candidate.section, candidate.position)" class="btn-success">Update</button>
+	    </td>
+	    <td>
+	      <button (click)="onDelete(candidate._id)" class="btn-info">Remove</button>
+	    </td>
+    </tr>
+
+    <tr *ngFor="let candidate of candidateData.g12rep ">
+    
+	    <!-- position -->
+	    <td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.position" name="position" >
+			    <mat-option value="President">{{ 'president' | titlecase }}</mat-option>
+			    <mat-option value="Vice President">{{'vice president' | titlecase }}</mat-option>
+			    <mat-option value="Secretary">{{ 'secretary' | titlecase }}</mat-option>
+			    <mat-option value="Auditor">{{ 'auditor '| titlecase }}</mat-option>
+			    <mat-option value="PIO">{{'public information officer' | titlecase }}</mat-option>
+			  	<mat-option value="G7 Representative">{{'g7 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G8 Representative">{{'g8 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G9 Representative">{{'g9 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G10 Representative">{{'g10 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G11 Representative">{{'g11 representative' | titlecase }}</mat-option>
+			  	<mat-option value="G12 Representative">{{'g12 representative' | titlecase }}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+	    </td>
+	    <!-- lrn -->
+	    <td>
+			<mat-form-field style="width:100%;">
+	    		<input type="number" matInput [(ngModel)]="candidate.lrn" name="lrn" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>	
+	    <!-- fullname -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.fullName" name="fullName"  >
+	    	</mat-form-field>
+	    	&nbsp;
+	    
+	    </td>		
+	    <!-- partylist -->
+	    <td>
+	    	<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.party" name="party" >
+			    <mat-option value="democratic">Democratic</mat-option>
+			    <mat-option value="progressive">Progressive</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- gradelevel -->
+		<td>
+			<mat-form-field style="width:100%;">
+			  <mat-select matInput [(ngModel)]="candidate.gradeLevel" name="gradeLevel" [(placeholder)]="candidate.gradeLevel" >
+			    <mat-option value="7">7</mat-option>
+			    <mat-option value="8">8</mat-option>
+			    <mat-option value="9">9</mat-option>
+			    <mat-option value="10">10</mat-option>
+			    <mat-option value="11">11</mat-option>
+			    <mat-option value="12">12</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;
+		</td>
+		<!-- section -->
+		<td>
+			<mat-form-field style="width:100%;">
+	    		<input  matInput [(ngModel)]="candidate.section" name="section" >
+	    	</mat-form-field>
+	    	&nbsp;
+	    </td>
+
+	    <td>  
+	        <button (click)="onUpdate(candidate._id, candidate.lrn, candidate.fullName, candidate.party, candidate.gradeLevel, candidate.section, candidate.position)" class="btn-success">Update</button>
+	    </td>
+	    <td>
+	      <button (click)="onDelete(candidate._id)" class="btn-info">Remove</button>
+	    </td>
+    </tr>
+
+</table>
+

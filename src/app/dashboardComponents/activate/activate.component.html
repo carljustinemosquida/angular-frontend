@@ -1,0 +1,20 @@
+<mat-card >
+	<form (submit)="search()" *ngIf="isSearching; else activate">
+			<mat-form-field style="width: 100%;">
+	    		<input matInput [(ngModel)]="lrn" name="lrn" placeholder="Name">
+	    	</mat-form-field>
+	    	<button class="btn-success" type="submit">Search</button>
+	</form> 
+
+	<ng-template #activate>
+			<h2>Please check the voters data</h2>
+			<br>
+			<p>Name: {{data.fullName}}</p>
+			<p>Grade: {{data.gradeLevel}}</p>
+			<p>Section: {{data.section}}</p>
+			<p>LRN: {{data.lrn}}</p>
+			<br>
+	    	<button  (click)="onActivate()"class="btn-success">Activate</button>
+	</ng-template>
+
+</mat-card>

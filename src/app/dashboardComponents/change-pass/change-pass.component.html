@@ -1,0 +1,27 @@
+<div style="width: 80%; margin: auto;">
+  <div class="container">
+      <mat-card class="example-card" style="margin:10%; background-color: black;  ">
+          <br><br>
+          <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Administrator</mat-card-title>
+              <mat-card-subtitle>@tnts</mat-card-subtitle>
+          </mat-card-header>
+          <br><br>
+           <div style="width:70%;   margin: auto;">  
+              <form (submit)="changePassword()">
+                <mat-form-field required style="width: 100%;">
+                  <input matInput type="password" [(ngModel)]="currPass" name="current-password" placeholder="Current Password">
+                </mat-form-field>
+  
+                <mat-form-field required style="width: 100%;">
+                   <input matInput type="password" [(ngModel)]="newPass" name="new-passsword" placeholder="New Password">
+                </mat-form-field>
+                <br><br>
+                  <button style="display: block; width: 100%; background-color: green; color:white;"type="submit" mat-flat-button>Submit</button>
+              </form>
+           </div>
+           <br><br>
+      </mat-card>     
+    </div>
+  </div>

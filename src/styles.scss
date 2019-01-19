@@ -1,0 +1,119 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$angular-themed-primary: mat-palette($mat-indigo);
+$angular-themed-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$angular-themed-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$angular-themed-theme: mat-dark-theme($angular-themed-primary, $angular-themed-accent, $angular-themed-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($angular-themed-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+::ng-deep .ngx-charts { 
+	text { 
+		fill: #fff !important; 
+		} 
+	}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+.column {
+    float: left;
+    width: 33.33%;
+    text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+input{
+  color: white;
+}
+
+.btn-primary{
+    background-color: #222222;
+    border-radius: 5px;
+    padding: 10px;
+    cursor:pointer;
+}
+
+.btn-info{
+    background-color: #f40d30;
+    border-radius: 5px;
+    padding: 11px;
+    border: none;
+    color:white;
+    cursor:pointer;
+}
+
+.btn-black{
+  background-color: black;
+    border-radius: 5px;
+    padding: 11px;
+    border: none;
+    color:white;
+    cursor:pointer;
+}
+
+.btn-success{
+    background-color: green;
+    border-radius: 6px;
+    padding: 11px;
+    border: none;
+    color:white;
+    cursor:pointer;
+}
+
+table {
+  width:100%;
+}
+
+td, th {
+  border-bottom: 2px solid #333;
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
+
+tr:nth-child(even){
+  background-color: black;
+  color: white
+}
+
+tr:nth-child(odd){
+  background-color: #222;
+  color: white;
+}
+
+th{
+  padding-top: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: green;
+  color: white;
+}

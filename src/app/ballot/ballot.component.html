@@ -1,0 +1,91 @@
+{{president}}
+<div style="width: 100%; height: 100%; background-color: #222;">
+	<div style="width: 80%; margin: auto;">	
+		<br>
+		<mat-card style="background-color: black;  padding-top: 10%;">
+			<h1 style="text-align: center;">COMELEC BALLOT FORM</h1>
+			<p style="text-align: center;"><small>Please choose wisely!!!</small></p>
+
+			<div style="width: 80%; margin: auto; background-color:black; color: white; ">
+					<form  (submit)="onSubmitBallot()" >
+					<p>President</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.presidents; index as i; ">
+							<mat-radio-group [(ngModel)]="president" name="president" #radioGroup="matRadioGroup">
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
+							</mat-radio-group>
+						</li>	
+						<br>
+					<p>Vice President</p>	
+						<li style="list-style-type: none;" *ngFor="let p of data.vicePresidents; index as i; ">
+							<mat-radio-group [(ngModel)]="vicePresident" name="vicePresident" #radioGroup="matRadioGroup">
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
+							</mat-radio-group>
+						</li>
+					<br>
+					<p>Secretary</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.secretaries; index as i; ">
+							<mat-radio-group  [(ngModel)]="secretary" name="secretary" #radioGroup="matRadioGroup">
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
+							</mat-radio-group>
+						</li>
+					<br>
+					<p>Auditor</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.auditors; index as i; ">
+							<mat-radio-group [(ngModel)]="auditor" name="treasurer" #radioGroup="matRadioGroup">
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
+							</mat-radio-group>
+						</li>
+					<br>
+					<p>Treasurer</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.treasurers; index as i; ">
+							<mat-radio-group [(ngModel)]="treasurer" name="auditor" #radioGroup="matRadioGroup">
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
+							</mat-radio-group>
+						</li>
+					<br>
+					<p>Public Information Officer</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.pios; index as i; ">
+							<mat-radio-group [(ngModel)]="pio" name="pio" #radioGroup="matRadioGroup">
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
+							</mat-radio-group>
+						</li>	
+					<br>
+					<p>G7 Representatives</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.g7rep; index as i; ">
+							<mat-checkbox (change)="addLrnToArray( p.lrn, $event)">{{p.fullName}}</mat-checkbox>
+						</li>
+					<br>
+					<p>G8 Representatives</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.g7rep; index as i; ">
+							<mat-checkbox (change)="addLrnToArray( p.lrn, $event)">{{p.fullName}}</mat-checkbox>
+						</li>
+					<br>	
+					<p>G9 Representatives</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.g7rep; index as i; ">
+							<mat-checkbox (change)="addLrnToArray( p.lrn, $event)">{{p.fullName}}</mat-checkbox>
+						</li>
+					<br>	
+					<p>G10 Representatives</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.g7rep; index as i; ">
+							<mat-checkbox (change)="addLrnToArray( p.lrn, $event)">{{p.fullName}}</mat-checkbox>
+						</li>
+					<br>
+					<p>G11 Representatives</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.g7rep; index as i; ">
+							<mat-checkbox (change)="addLrnToArray( p.lrn, $event)">{{p.fullName}}</mat-checkbox>
+						</li>
+					<br>
+					<p>G12 Representatives</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.g7rep; index as i; ">
+							<mat-checkbox (change)="addLrnToArray( p.lrn, $event)">{{p.fullName}}</mat-checkbox>
+						</li>
+					<br>				
+					
+	                <button style="display: block; width: 100%; background-color: green; color:white;"type="submit" mat-flat-button  >Submit</button>
+				</form>	
+			</div>
+		</mat-card>
+	</div> 	
+</div>
+
+

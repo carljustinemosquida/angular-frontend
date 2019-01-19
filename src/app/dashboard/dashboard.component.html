@@ -1,0 +1,56 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <!-- <mat-toolbar>Menu</mat-toolbar> -->
+
+    <mat-card>
+        <mat-card-header  >
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>admin@tnts</mat-card-title>
+        <mat-card-subtitle>COMELEC</mat-card-subtitle>
+      </mat-card-header>
+   </mat-card>   
+
+    <mat-nav-list >
+     <a *ngIf="hasElection" mat-list-item [routerLink]="['/dashboard']"><mat-icon color="warn">dashboard</mat-icon> &nbsp;Home</a>
+     <a *ngIf="hasElection" mat-list-item [routerLink]="['/dashboard/tallyboard']" ><mat-icon color="warn"> insert_chart</mat-icon> &nbsp;TallyBoard</a>
+     <a *ngIf="hasElection" mat-list-item [routerLink]="['/dashboard/activate']" ><mat-icon color="warn"> lense</mat-icon> &nbsp;Activate Voters</a>
+     <a *ngIf="hasElection && !isElectionStarted" mat-list-item [routerLink]="['/dashboard/nominate']" ><mat-icon color="warn"> cloud_upload</mat-icon> &nbsp;Create Nominees</a>
+     <a *ngIf="hasElection && !isElectionStarted" mat-list-item [routerLink]="['/dashboard/update-nominee']" ><mat-icon color="warn"> cloud_upload</mat-icon> &nbsp;Update Nominees</a>
+     <a *ngIf="hasElection && !isElectionStarted" mat-list-item [routerLink]="['/dashboard/upload']" ><mat-icon color="warn"> cloud_upload</mat-icon> &nbsp;Upload Voters DB</a>
+     <a mat-list-item [routerLink]="['/dashboard/election']" ><mat-icon color="warn"> cloud_upload</mat-icon> &nbsp;Election Settings</a>
+
+
+            <br>
+      <a mat-list-item [routerLink]="['/dashboard/change-pass']"><mat-icon color="warn">change_history</mat-icon> &nbsp; Change Password</a>
+      <a mat-list-item href="#"><mat-icon color="accent">power_settings_new</mat-icon> &nbsp; Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Dashboard</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <br>
+    <div style="width: 95%;margin: auto;">
+
+     
+      <br>
+     <router-outlet></router-outlet>
+     
+
+
+    </div>
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>
