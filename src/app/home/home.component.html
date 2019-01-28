@@ -1,9 +1,15 @@
 <app-navbar></app-navbar>
-<div style="width: 100%;height: 90%; background-color: black;color: white; background-image: url('assets/simple.png');background-repeat: no-repeat;
-    background-size: 100% 100%;">
+<div style="width: 100%;height: 95%; background-color: #222222; ">
 
-	<mat-card style="width: 40%; float:left; margin: 5%; background-color: rgba(0,0,0,0.5);">
-		<form (submit)="userForm.form.valid && onSubmit(userForm)" #userForm="ngForm">
+	<mat-card style="width: 40%; height: 80%; float:left; margin: 5%; background-color: rgba(0,0,0,0.1); border: #d3d3d3 0.4px solid; border-radius: 3px;">
+		<form (submit)="userForm.form.valid && onSubmit(userForm)" #userForm="ngForm" style="margin-left: 5%; margin-right: 5%;">
+			<br><br>
+
+			<p style="text-align: center;">Vote with your valid credentials
+				<span><br><small style="text-align: center;">Don't worry your data is secured with us</small></span>
+			</p>
+			
+			<br><br>
 			<!-- fullname -->
 			<mat-form-field style="width: 100%;">
 	    		<input matInput #name="ngModel" [(ngModel)]="fullName" name="fullName" placeholder="Name" required>
@@ -25,7 +31,7 @@
             </div>
 	    	<br><br>
 	    	<!-- section -->
-	    	<mat-form-field style="display: inline-block; float: left; width: 50%; ">
+	    	<mat-form-field style="display: inline-block; width: 48%; ">
 			  <mat-select #year="ngModel" matInput [(ngModel)]="gradeLevel"  name="gradeLevel" placeholder="Year Level"  required>
 			    <mat-option value=7>Grade 7</mat-option>
 			    <mat-option value=8>Grade 8</mat-option>
@@ -37,7 +43,7 @@
 			</mat-form-field> 
             &nbsp;&nbsp;
 			<!-- section -->
-	    	<mat-form-field style=" display: inline-block; width: 38%;">
+	    	<mat-form-field style=" display: inline-block; width: 48%;">
 	    		<input #studentSection="ngModel" matInput [(ngModel)]="section" name="section" placeholder="Section"   required>
 	    	</mat-form-field>
 
@@ -57,4 +63,16 @@
 
 	    </form>	
 	</mat-card>
+
+	<div style=" width: 40%; float: right; margin-right: 5%; ">
+
+		<br><br><br>
+		<p style="text-align: center; font-size: 20px; color: white;">TNTS COMELEC SYSTEM
+				<span><br><small style="text-align: center;"> Welcome to our official SSG Election</small></span>
+		</p>
+
+		<br><br>
+		<img src="assets/computer.png" width="100%;">
+	</div>
+
 </div>
