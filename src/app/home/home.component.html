@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
-<div style="width: 100%;height: 95%; background-color: #222222; ">
+
+<div *ngIf="theme; else whitethemed" style="width: 100%;height: 95%; background-color: #222222;">
 
 	<mat-card style="width: 40%; height: 80%; float:left; margin: 5%; background-color: rgba(0,0,0,0.1); border: #d3d3d3 0.4px solid; border-radius: 3px;">
 		<form (submit)="userForm.form.valid && onSubmit(userForm)" #userForm="ngForm" style="margin-left: 5%; margin-right: 5%;">
@@ -61,12 +62,15 @@
 	    	<button style="display: block; width: 100%; background-color: green; color:white;"type="submit" mat-flat-button  >Submit</button>
 
 
-	    </form>	
+	    </form>	 
 	</mat-card>
 
 	<div style=" width: 40%; float: right; margin-right: 5%; ">
 
-		<br><br><br>
+		<mat-slide-toggle (change)="onChange()">
+			<span><p style="color: white;">Enable White Theme</p></span>
+		</mat-slide-toggle>
+		<br><br>
 		<p style="text-align: center; font-size: 20px; color: white;">TNTS COMELEC SYSTEM
 				<span><br><small style="text-align: center;"> Welcome to our official SSG Election</small></span>
 		</p>
@@ -76,3 +80,85 @@
 	</div>
 
 </div>
+
+<ng-template #whitethemed>
+	<div *ngIf="!theme;" style="width: 100%;height: 95%; background-color: white;">
+
+	<mat-card style="width: 40%; height: 80%; float:left; margin: 5%; background-color: rgba(255,255,255.1); border: #d3d3d3 0.4px solid; border-radius: 3px;">
+		<form (submit)="userForm.form.valid && onSubmit(userForm)" #userForm="ngForm" style="margin-left: 5%; margin-right: 5%;">
+			<br><br>
+
+			<p style="text-align: center;">Vote with your valid credentials
+				<span><br><small style="text-align: center;">Don't worry your data is secured with us</small></span>
+			</p>
+			
+			<br><br>
+			<!-- fullname -->
+			<mat-form-field style="width: 100%;">
+	    		<input matInput #name="ngModel" [(ngModel)]="fullName" name="fullName" placeholder="Name" required>
+	    	</mat-form-field>
+	    	
+	    	<div *ngIf="userForm.submitted && name.invalid" class="btn-info">
+	    		
+                <div *ngIf="name.errors.required"> Your name is required</div>
+            </div>
+            <br>
+	    	<!-- lrn -->
+	    	<mat-form-field style=" width:100%;">
+	    		<input matInput #studentlrn="ngModel" [(ngModel)]="lrn" name="lrn" placeholder="LRN" type="number" required>
+	    	</mat-form-field>
+	    	
+	    	<div *ngIf="userForm.submitted && studentlrn.invalid" class="btn-info">
+            	
+                <div *ngIf="studentlrn.errors.required"> Your lrn is required</div>
+            </div>
+	    	<br><br>
+	    	<!-- section -->
+	    	<mat-form-field style="display: inline-block; width: 48%; ">
+			  <mat-select #year="ngModel" matInput [(ngModel)]="gradeLevel"  name="gradeLevel" placeholder="Year Level"  required>
+			    <mat-option value=7>Grade 7</mat-option>
+			    <mat-option value=8>Grade 8</mat-option>
+			    <mat-option value=9>Grade 9</mat-option>
+			    <mat-option value=10>Grade 10</mat-option>
+			    <mat-option value=11>Grade 11</mat-option>
+			    <mat-option value=12>Grade 12</mat-option>
+			  </mat-select>
+			</mat-form-field> 
+            &nbsp;&nbsp;
+			<!-- section -->
+	    	<mat-form-field style=" display: inline-block; width: 48%;">
+	    		<input #studentSection="ngModel" matInput [(ngModel)]="section" name="section" placeholder="Section"   required>
+	    	</mat-form-field>
+
+	    	<div *ngIf="userForm.submitted && year.invalid" class="btn-info">
+                
+                <div *ngIf="year.errors.required">Your year level is required</div>
+            </div>
+            <br>
+	    	<div *ngIf="userForm.submitted && studentSection.invalid" class="btn-info">
+               
+               <div *ngIf="studentSection.errors.required"> Your section is required</div>
+            </div>
+	
+	    	<br><br>
+	    	<button style="display: block; width: 100%; background-color: green; color:white;"type="submit" mat-flat-button  >Submit</button>
+
+
+	    </form>	 
+	</mat-card>
+
+	<div style=" width: 40%; float: right; margin-right: 5%; ">
+		<mat-slide-toggle (change)="onChange()">
+			<span><p style="color: black;">Enable Dark Theme</p></span>
+		</mat-slide-toggle>
+		<br><br>
+		<p style="text-align: center; font-size: 20px; color: white;">TNTS COMELEC SYSTEM
+				<span><br><small style="text-align: center;"> Welcome to our official SSG Election</small></span>
+		</p>
+
+		<br><br>
+		<img src="assets/computer.png" width="100%;">
+	</div>
+
+</div>
+</ng-template>

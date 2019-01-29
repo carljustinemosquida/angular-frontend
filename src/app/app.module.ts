@@ -24,7 +24,8 @@ import { MatToolbarModule,
          MatDatepickerModule,
          MatNativeDateModule,
          MatCheckboxModule,
-         MatSelectModule  } from '@angular/material';
+         MatSelectModule,
+         MatSlideToggleModule  } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -127,7 +128,8 @@ const appRoute: Routes = [
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSlideToggleModule
   ],
   providers: [BallotfetchService,AuthService,NominateService, HomeService, ElectionService, AuthGuard, Auth2Guard, Auth3Guard], 
   bootstrap: [AppComponent]

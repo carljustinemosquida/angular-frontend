@@ -15,12 +15,23 @@ export class HomeComponent implements OnInit {
 	gradeLevel:any;
   section:String;
   authToken:any;
+  theme:any;
 
   constructor(private service: HomeService, private router: Router) { }
 
   ngOnInit() {
   	this.section = '';
+    this.theme = true;
   }
+
+  onChange() {
+    if(this.theme == false){
+      this.theme = true;
+    } else if(this.theme == true){
+      this.theme = false;
+    }
+    console.log(this.theme);
+  } 
 
   onSubmit(userForm: NgForm){
     const trimmedSection = this.section.replace(/ /g,'').toLowerCase();
