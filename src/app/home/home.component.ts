@@ -12,7 +12,7 @@ import {NgForm} from '@angular/forms';
 export class HomeComponent implements OnInit {
 	fullName:String;
 	lrn:any;
-	gradeLevel:Number;
+	gradeLevel:any;
   section:String;
   authToken:any;
   theme:any;
@@ -34,11 +34,13 @@ export class HomeComponent implements OnInit {
   } 
 
   onSubmit(userForm: NgForm){
+    const trimmedSection = this.section.replace(/ /g,'').toLowerCase();
+  
     const user = {
-  		fullName: this.fullName.replace(/ /g,'').toLowerCase(),
+  		fullName: this.fullName,
 		  lrn: this.lrn,
-		  gradeLevel: Number(this.gradeLevel),
-		  section: this.section.replace(/ /g,'').toLowerCase()
+		  gradeLevel: this. gradeLevel,
+		  section: trimmedSection
   	}
 
     console.log(user);
