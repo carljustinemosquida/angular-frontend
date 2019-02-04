@@ -46,7 +46,7 @@ export class BallotComponent implements OnInit {
   onSubmitBallot(){
     const voter = localStorage.getItem('user_lrn');
     const voterId = parseInt(voter);
-    const voteList: number[] = [this.president, this.vicePresident, this.secretary,this.auditor,this.pio];
+    const voteList: number[] = [this.president, this.vicePresident, this.secretary, this.treasurer,this.auditor,this.pio];
     const allVotes = voteList.concat(this.repList);
     const votesData = {
       voterLRN: voterId,

@@ -34,13 +34,13 @@ export class HomeComponent implements OnInit {
   } 
 
   onSubmit(userForm: NgForm){
-    const trimmedSection = this.section.replace(/ /g,'').toLowerCase();
   
     const user = {
-  		fullName: this.fullName,
+  		fullName: this.fullName.replace(/ /g,'').toLowerCase(),
 		  lrn: this.lrn,
-		  gradeLevel: this. gradeLevel,
-		  section: trimmedSection
+		  gradeLevel: Number(this.gradeLevel),
+		  section: this.section.replace(/ /g,'').toLowerCase()
+  
   	}
 
     console.log(user);

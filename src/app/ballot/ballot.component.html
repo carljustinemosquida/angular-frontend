@@ -31,14 +31,14 @@
 					<br>
 					<p>Auditor</p>
 						<li style="list-style-type: none;" *ngFor="let p of data.auditors; index as i; ">
-							<mat-radio-group [(ngModel)]="auditor" name="treasurer" #radioGroup="matRadioGroup">
+							<mat-radio-group [(ngModel)]="auditor" name="auditor" #radioGroup="matRadioGroup">
 							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
 							</mat-radio-group>
 						</li>
 					<br>
 					<p>Treasurer</p>
 						<li style="list-style-type: none;" *ngFor="let p of data.treasurers; index as i; ">
-							<mat-radio-group [(ngModel)]="treasurer" name="auditor" #radioGroup="matRadioGroup">
+							<mat-radio-group [(ngModel)]="treasurer" name="treasurer" #radioGroup="matRadioGroup">
 							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
 							</mat-radio-group>
 						</li>
