@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NotifierModule } from 'angular-notifier';
 
 import { MatToolbarModule,
          MatButtonModule, 
@@ -129,7 +130,8 @@ const appRoute: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    NotifierModule 
   ],
   providers: [BallotfetchService,AuthService,NominateService, HomeService, ElectionService, AuthGuard, Auth2Guard, Auth3Guard], 
   bootstrap: [AppComponent]
