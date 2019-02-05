@@ -1,8 +1,13 @@
 <mat-card *ngIf=" isElectionEnded ;else deleteElection">
 	<div>
-		<h2>DROP ELECTION DATABASE</h2>
+		<h2>Election Status: Done</h2>
+
+		<div>---------- Results Here ----------</div>
 		<br>
-		<p>Are you sure you want to delete everything??</p>
+		<br>
+		<div>---------- Results Here ----------</div>
+
+		<p>If you want to start a new election, drop the current electiond database.</p>
 		<form>
 			<button (click)="deleteDbElection()" type="submit" class="btn-info">DELETE ELECTION DATABASE</button>
 		</form>
@@ -12,34 +17,56 @@
 <ng-template #deleteElection>
 	<mat-card>
 		<div *ngIf="hasNoElection; else hasElectionTemplate">
-			<h2>No Election has been made yet !</h2>
-			<br>
-			<p>Want to get started ?</p>
+			<h2>Election Status: None</h2>
+			<p>
+				For an election to get started, you need to create one first. 
+				Click <b>Create Election</b> to get started.
+			</p>
 			<form>
-				<button (click)="createElection()" type="submit" class="btn-success">CREATE ELECTION DATABASE</button>
+				<button (click)="createElection()" type="submit" class="btn-success">CREATE ELECTION</button>
 			</form>
 		</div>
 
 		<ng-template #hasElectionTemplate>
 			<div style="display:inline-block;" *ngIf="!electionStarted; else electionhasstarted">
-				<br>
-				<br>
-				<p>Tap to start </p>
+				<h2>Election Status: On Preparation </h2>
+				<p>
+					Upload all voters details to the database. Nominate Candidates for this election.
+					Make sure that all voters and candidates are uploaded and nominated to the database
+					before starting the election. Once the election started, you cannot upload, nominate,
+					nor update and edit candidate's information.
+				</p>
 				<br>
 				<form>
-					<button (click)="startElection()" type="submit" class="btn-success" >START ELECTION </button>
+					<button (click)="startElection()" type="submit" class="btn-success" > BEGIN THE ELECTION </button>
 				</form>
 			</div>
+
 			<ng-template #electionhasstarted>
-				<div style="display:inline-block;">	 <br>
-				<br>
-				<p>Tap to start </p>
-				<br>
-				<form>
-					<button (click)="endElection()" type="submit" class="btn-info" >END ELECTION</button>
-				</form>
-			</div>
+				<div style="display:inline-block;">
+					<h2>Election Status: On-Going</h2>
+					<p>
+						Voter accounts are needed to be activated before they can access the e-ballot and
+						submit their vote.
+					</p>
+						<ol>
+							<li>Procceed to the Activate Voters Tab.</li>
+							<li>Request for the student's Identification Card.</li>
+							<li>Search for the voter's account with the student's LRN.</li>
+							<li>Validate Student's Information.</li>
+							<li>Activate.</li>
+						</ol>
+					<p>
+						Make sure that all validated voters have voted before ending the election.
+						Once the election has ended, voters cannot vote anymore and results will be tallied immediately.
+						Please proceed with caution.
+					</p>
+					<form>
+						<button (click)="endElection()" type="submit" class="btn-info" > END ELECTION </button>
+					</form>
+				</div>
 			</ng-template>
+
 			<br><br>
 		</ng-template>
 	</mat-card> 
