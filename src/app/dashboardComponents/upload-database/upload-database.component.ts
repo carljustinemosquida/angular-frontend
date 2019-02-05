@@ -13,16 +13,12 @@ import {NgForm} from '@angular/forms';
 export class UploadDatabaseComponent implements OnInit {
 
   private filesToUpload = null;
-  public message = '';
-  data:any
-  
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
   ngOnInit() { }
 
   files(files) {
-    this.message = '';
     this.filesToUpload = files;
   }
 
@@ -39,14 +35,16 @@ export class UploadDatabaseComponent implements OnInit {
       })
     }
 
-    this.http.post<any>('http://localhost:3000/api/voters/import', formData, httpOption).subscribe(data =>{
-      this.data = data;
-      alert(data.success);
-      
-    }); 
-
+    this.http.post<any>('http://localhost:3000/api/voters/import', formData, httpOption)
+      .subscribe(
+        data =>{
+        console.log(data.result);
+        alert(data.message);
+      }, res => {
+        alert(res.error.message);
+      }
+    ); 
     uploadForm.resetForm();
-
   }
 
 }

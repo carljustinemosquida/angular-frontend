@@ -1,7 +1,7 @@
 <mat-card >
 	<form (submit)="search()" *ngIf="isSearching; else activate">
 			<mat-form-field style="width: 100%;">
-	    		<input matInput [(ngModel)]="lrn" name="lrn" placeholder="Name">
+	    		<input matInput [(ngModel)]="lrn" name="lrn" placeholder="Learner's Reference Number (LRN)">
 	    	</mat-form-field>
 	    	<button class="btn-success" type="submit">Search</button>
 	</form> 
@@ -14,7 +14,7 @@
 			<p>Section: {{data.section}}</p>
 			<p>LRN: {{data.lrn}}</p>
 			<br>
-	    	<button  (click)="onActivate()"class="btn-success">Activate</button>
+	    	<button  (click)="onActivate()" class="btn-success">Activate</button>
 	</ng-template>
 
 </mat-card>

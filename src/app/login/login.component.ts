@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.auth.authenticate(credentials).subscribe(
       data => {
         this.auth.storeToken(data.authToken);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/election']);
     }, err => {
         alert(err.error);
     });
