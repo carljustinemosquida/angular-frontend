@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../auth.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {NgForm} from '@angular/forms';
-
+import { NotifierService } from 'angular-notifier';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class UploadDatabaseComponent implements OnInit {
 
   private filesToUpload = null;
 
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  constructor(private http: HttpClient, private auth: AuthService,  private notifier: NotifierService) { }
 
   ngOnInit() { }
 
@@ -38,10 +38,10 @@ export class UploadDatabaseComponent implements OnInit {
     this.http.post<any>('http://localhost:3000/api/voters/import', formData, httpOption)
       .subscribe(
         data =>{
-        console.log(data.result);
-        alert(data.message);
-      }, res => {
-        alert(res.error.message);
+          //console.log(data.result);
+          this.notifier.notify('success', data.message);
+      }, err => {
+          this.notifier.notify('error', err.error.message);
       }
     ); 
     uploadForm.resetForm();

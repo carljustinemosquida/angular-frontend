@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../auth.service';
 import { Alert } from 'selenium-webdriver';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-change-pass',
@@ -12,18 +13,18 @@ export class ChangePassComponent {
   currPass: string;
   newPass: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,  private notifier: NotifierService) { }
 
   changePassword(){
     this.authService.changePass({
       currentPass: this.currPass,
       newPass: this.newPass
     }).subscribe(
-      res => { // success 200 OK Status
-        alert(res.message);
+      res => { 
+        this.notifier.notify('success',res.message);
       },
-      error => { // error handler
-        alert(error.error);
+      error => { 
+        this.notifier.notify('error', error.error);
       }
     );
   }

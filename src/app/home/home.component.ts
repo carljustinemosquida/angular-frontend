@@ -3,6 +3,8 @@ import {FormControl} from '@angular/forms';
 import {HomeService} from '../home.service';
 import {Router} from "@angular/router";
 import {NgForm} from '@angular/forms';
+import { NotifierService } from 'angular-notifier';
+
 
 @Component({
   selector: 'app-home',
@@ -17,7 +19,7 @@ export class HomeComponent implements OnInit {
   authToken:any;
   theme:any;
 
-  constructor(private service: HomeService, private router: Router) { }
+  constructor(private service: HomeService, private router: Router, private notifier: NotifierService) { }
 
   ngOnInit() {
   	this.section = '';
@@ -30,7 +32,6 @@ export class HomeComponent implements OnInit {
     } else if(this.theme == true){
       this.theme = false;
     }
-    console.log(this.theme);
   } 
 
   onSubmit(userForm: NgForm){
@@ -40,23 +41,21 @@ export class HomeComponent implements OnInit {
 		  lrn: this.lrn,
 		  gradeLevel: Number(this.gradeLevel),
 		  section: this.section.replace(/ /g,'').toLowerCase()
-  
   	}
 
-    console.log(user);
     this.service.userChecker(user).subscribe(
       data => {
-        console.log(data);                     
-      
+        this.notifier.notify('success',"Waiting for Authentication ...");
         this.service.storeToken(data.authToken);
         this.router.navigate(['/ballot']);
       }, error => {
-        console.log(error);
-        alert("Processing your data ...");
+        this.notifier.notify('success',"User Credentials Successfully Sended ");
         if (error.error == "Invalid Voter Details."){
-          alert(error.error);
+          this.notifier.notify('error', error.error);
+        } else if(!error.error == null){
+          this.notifier.notify('error', error.error.name);
         } else {
-          alert(error.error.name);
+          this.notifier.notify('error', 'Sorry, Please try again');
         }
       });  
 

@@ -13,9 +13,6 @@ export class ActivateComponent implements OnInit {
   isSearching = true;
   data:any;
 
-  
-
-
   constructor(private http: HttpClient, private auth: AuthService, private notifier: NotifierService) { }
 
   ngOnInit() {
@@ -24,8 +21,7 @@ export class ActivateComponent implements OnInit {
   search(){
   	return this.http.get<any>('http://localhost:3000/api/voters/searchVoter/'+this.lrn).pipe().subscribe(
   			data => { 
-  				console.log(data);
-
+  				
   				this.data = data;
   				if (data.canVote == false){
   					this.isSearching = false;
@@ -37,7 +33,6 @@ export class ActivateComponent implements OnInit {
   				}
   			},
   			error => {
-  				console.log(error);
   			   this.notifier.notify('error',error.error);
   			}
   		);
@@ -54,11 +49,10 @@ export class ActivateComponent implements OnInit {
 
   	return this.http.put<any>('http://localhost:3000/api/voters/activateVoter/'+lrn, null, httpOptions).pipe().subscribe(
   			data => {
-  				console.log(data);
   				 this.notifier.notify('success',"Voter Activated");
   				this.isSearching = true;	
   			},
-  			error => {console.log(error);
+  			error => {
   					this.notifier.notify('error',error.error);
   			}
   		);

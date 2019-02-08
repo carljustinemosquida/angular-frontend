@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import {Router} from '@angular/router';
+import { NotifierService } from 'angular-notifier';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +14,7 @@ export class LoginComponent implements OnInit {
   username: String;
   password: String;
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, private notifier: NotifierService) { }
 
   ngOnInit() {
   }
@@ -26,9 +28,10 @@ export class LoginComponent implements OnInit {
     this.auth.authenticate(credentials).subscribe(
       data => {
         this.auth.storeToken(data.authToken);
+        this.notifier.notify('success',"Session Authenticated");
         this.router.navigate(['/dashboard/election']);
     }, err => {
-        alert(err.error);
+         this.notifier.notify('error',err.error);
     });
   	
   }

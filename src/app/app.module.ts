@@ -61,7 +61,6 @@ import {Auth3Guard} from './guards/auth3.guard';
 const appRoute: Routes = [
   {path:'', component:HomeComponent},
   {path:'navbar', component:NavbarComponent},
-  {path:'register', component:RegisterComponent},
   {path:'login', component:LoginComponent},
   {path: 'dashboard', 
    component:DashboardComponent, children: [    
