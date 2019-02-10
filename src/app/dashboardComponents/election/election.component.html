@@ -1,4 +1,4 @@
-<mat-card *ngIf=" isElectionEnded ;else deleteElection">
+<mat-card  style="background-color: #33333d;" *ngIf=" isElectionEnded ;else deleteElection">
 	<div>
 		<h2>Election Status: Done</h2>
 
@@ -20,7 +20,7 @@
 </mat-card>	
 
 <ng-template #deleteElection>
-	<mat-card>
+	<mat-card  style="background-color: #33333d;">
 		<div *ngIf="hasNoElection; else hasElectionTemplate">
 			<h2>Election Status: None</h2>
 			<p>
@@ -33,7 +33,7 @@
 		</div>
 
 		<ng-template #hasElectionTemplate>
-			<div style="display:inline-block;" *ngIf="!electionStarted; else electionhasstarted">
+			<div style="display:inline-block; background-color: #33333d;" *ngIf="!electionStarted; else electionhasstarted">
 				<h2>Election Status: On Preparation </h2>
 				<p>
 					Upload all voters details to the database. Nominate Candidates for this election.
@@ -48,7 +48,7 @@
 			</div>
 
 			<ng-template #electionhasstarted>
-				<div style="display:inline-block;">
+				<div style="display:inline-block; background-color: #33333d;">
 					<h2>Election Status: On-Going</h2>
 					<p>
 						Voter accounts are needed to be activated before they can access the e-ballot and

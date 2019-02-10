@@ -1,9 +1,42 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$custom-primary: mat-palette($mat-grey, 900);
+$mat-grey: (
+    50 : #e7e7e8,
+    100 : #c2c2c5,
+    200 : #99999e,
+    300 : #707077,
+    400 : #52525a,
+    500 : #33333d,
+    600 : #2e2e37,
+    700 : #27272f,
+    800 : #202027,
+    900 : #14141a,
+    A100 : #6161ff,
+    A200 : #2e2eff,
+    A400 : #0000fa,
+    A700 : #0000e0,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$custom-primary: mat-palette($mat-grey);
 $custom-accent: mat-palette($mat-red);
-$custom-warn: mat-palette($mat-green);
+$custom-warn: mat-palette($mat-green, 400); 
 
 $custom-theme: mat-dark-theme($custom-primary, $custom-accent, $custom-warn);
 

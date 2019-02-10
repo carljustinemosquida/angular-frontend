@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
     if(this.theme == false){
       this.bodytheme = true;
       this.theme = true;
-      document.body.style.backgroundColor = "#222";
+      document.body.style.backgroundColor = "#202027";
     } else if(this.theme == true){
       this.bodytheme = false;
       this.theme = false;
