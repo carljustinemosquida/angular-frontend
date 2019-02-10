@@ -17,13 +17,14 @@ export class TallyRowComponent implements OnInit {
   heightRatio: string = "100:20";
 
   dataFetched: boolean = false;
- 
+
   constructor(private tallyService: TallyService) {}
 
   ngOnInit() {
     this.fetchTally()
       .then(() => this.dataFetched = true)
       .catch((error) => console.log(error));
+      
   }
 
   fetchTally(){

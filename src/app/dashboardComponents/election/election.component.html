@@ -2,12 +2,17 @@
 	<div>
 		<h2>Election Status: Done</h2>
 
-		<div>---------- Results Here ----------</div>
+		<strong style="font-size: 25px">Results:</strong> <br>
+		<b>President:</b> {{electionResults.President.fullName}} from the {{electionResults.President.party}} party. ({{electionResults.President.votes}} votes)<br>
+		<b>Vice President:</b> {{electionResults.VicePresident.fullName}} from the {{electionResults.VicePresident.party}} party. ({{electionResults.VicePresident.votes}} votes)<br>
+		<b>Secretary:</b> {{electionResults.Secretary.fullName}} from the {{electionResults.Secretary.party}} party. ({{electionResults.Secretary.votes}} votes)<br>
+		<b>Treasurer:</b> {{electionResults.Treasurer.fullName}} from the {{electionResults.Treasurer.party}} party. ({{electionResults.Treasurer.votes}} votes)<br>
+		<b>Auditor:</b> {{electionResults.Auditor.fullName}} from the {{electionResults.Auditor.party}} party. ({{electionResults.Auditor.votes}} votes)<br>
+		<b>PIO:</b> {{electionResults.PIO.fullName}} from the {{electionResults.PIO.party}} party. ({{electionResults.PIO.votes}} votes)<br>
 		<br>
-		<br>
-		<div>---------- Results Here ----------</div>
+		
 
-		<p>If you want to start a new election, drop the current electiond database.</p>
+		<p>If you want to start a new election, drop the current electiond database. <br> CAUTION: THIS WILL DELETE ALL THE DATA FORM THE CURRENT ELECTION</p>
 		<form>
 			<button (click)="deleteDbElection()" type="submit" class="btn-info">DELETE ELECTION DATABASE</button>
 		</form>

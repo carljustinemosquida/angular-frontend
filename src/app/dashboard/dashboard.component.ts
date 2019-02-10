@@ -10,6 +10,7 @@ export class DashboardComponent {
 	 
   constructor(private router: Router){}
 
+  isHandset$;
   hasElection:any;
   isElectionStarted:any;
 

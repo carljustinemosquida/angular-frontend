@@ -19,6 +19,7 @@
      <a *ngIf="hasElection" mat-list-item [routerLink]="['/dashboard/activate']" ><mat-icon color="warn"> how_to_reg</mat-icon> &nbsp;Activate Voters</a>
      <a *ngIf="hasElection && !isElectionStarted" mat-list-item [routerLink]="['/dashboard/nominate']" ><mat-icon color="warn"> create</mat-icon> &nbsp;Create Nominees</a>
      <a *ngIf="hasElection && !isElectionStarted" mat-list-item [routerLink]="['/dashboard/update-nominee']" ><mat-icon color="warn"> view_list</mat-icon> &nbsp;Update Nominees</a>
+
      <a *ngIf="hasElection && !isElectionStarted" mat-list-item [routerLink]="['/dashboard/upload']" ><mat-icon color="warn"> cloud_upload</mat-icon> &nbsp;Upload Voters DB</a>
      <a mat-list-item [routerLink]="['/dashboard/election']" ><mat-icon color="warn"> settings</mat-icon> &nbsp;Election Settings</a>
 
