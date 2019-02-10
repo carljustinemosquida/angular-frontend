@@ -9,6 +9,7 @@ export class DashboardComponent {
 	 
   constructor(){}
 
+  isHandset$;
   hasElection:any;
   isElectionStarted:any;
 

@@ -17,7 +17,8 @@ export class ElectionComponent implements OnInit {
 
   ngOnInit() {
   	this.election.getElection().subscribe(data => {
-  		this.electionData = data;
+      this.electionData = data;
+      this.electionResults = data.results;
       console.log(data);
       this.hasNoElection = false;
       localStorage.setItem('hasNoElection', 'false');
@@ -80,11 +81,14 @@ export class ElectionComponent implements OnInit {
     });
   }
 
+  electionResults; any;
   endElection(){
     this.election.endElection().subscribe(data => {
       console.log(data);
       localStorage.setItem('isElectionEnded', 'true');
       this.isElectionEnded = true;
+      this.electionData = data;
+      this.electionResults = data.results;
       });
   }
 
