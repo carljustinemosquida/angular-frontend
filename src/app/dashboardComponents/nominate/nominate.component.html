@@ -1,5 +1,5 @@
 <div style="width: 60%; height: auto;">
-	<mat-card >
+	<mat-card style="background-color: #33333d;">
 		<mat-card-title>Nominate Candidate</mat-card-title>
 		<form #nominateForm="ngForm" (submit)="onNominateMethod(nominateForm)">
 			<div style="display: inline-block;">
@@ -16,8 +16,8 @@
 	        	<!-- partylist -->
 	        	<mat-form-field style="width:100%;">
 				  <mat-select matInput [(ngModel)]="party" name="party" placeholder="Select Partylist">
-				    <mat-option value="democratic">Democratic</mat-option>
-				    <mat-option value="progressive">Progressive</mat-option>
+				    <mat-option value="Democratic">Democratic</mat-option>
+				    <mat-option value="Progressive">Progressive</mat-option>
 				  </mat-select>
 				</mat-form-field>
 				&nbsp;

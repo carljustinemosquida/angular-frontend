@@ -35,7 +35,8 @@ $angular-themed-theme: mat-dark-theme($angular-themed-primary, $angular-themed-a
 	}
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+body { margin: 0; 
+font-family: 'Roboto Condensed', sans-serif;}
 
 
 
@@ -73,7 +74,7 @@ input{
 }
 
 .btn-black{
-  background-color: black;
+  background-color: #202027;
     border-radius: 5px;
     padding: 11px;
     border: none;
@@ -95,19 +96,19 @@ table {
 }
 
 td, th {
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid #2e2e37;
   padding: 10px;
   color: white;
   text-align: center;
 }
 
 tr:nth-child(even){
-  background-color: black;
+  background-color: #202027;
   color: white
 }
 
 tr:nth-child(odd){
-  background-color: #222;
+  background-color: #27272F;
   color: white;
 }
 
@@ -116,7 +117,7 @@ th{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: green;
+  background-color: #66bb6a;
   color: white;
 }
 
