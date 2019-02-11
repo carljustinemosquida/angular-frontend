@@ -56,6 +56,7 @@ import {ElectionService} from './election.service';
 import {AuthGuard} from './guards/auth.guard';
 import {Auth2Guard} from './guards/auth2.guard';
 import {Auth3Guard} from './guards/auth3.guard';
+import {Auth4Guard} from './guards/auth4.guard';
 import { BallotDialogComponent } from './ballot-dialog/ballot-dialog.component';
 
 
@@ -75,7 +76,7 @@ const appRoute: Routes = [
       {path:'election', component: ElectionComponent}
     ], canActivate:[AuthGuard]
   },
-  {path:'ballot', component:BallotComponent}
+  {path:'ballot', component:BallotComponent, canActivate:[Auth4Guard]}
 ]
 
 @NgModule({
@@ -131,7 +132,7 @@ const appRoute: Routes = [
     NotifierModule,
     MatDialogModule 
   ],
-  providers: [BallotfetchService,AuthService,NominateService, HomeService, ElectionService, AuthGuard, Auth2Guard, Auth3Guard], 
+  providers: [BallotfetchService,AuthService,NominateService, HomeService, ElectionService, AuthGuard, Auth2Guard, Auth3Guard, Auth4Guard], 
   bootstrap: [AppComponent],
   entryComponents: [BallotDialogComponent]
 })

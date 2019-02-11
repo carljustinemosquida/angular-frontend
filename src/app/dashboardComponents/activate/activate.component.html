@@ -2,7 +2,7 @@
 <mat-card style="background-color: #33333d;">
 
 	<form (submit)="search()">
-		<mat-form-field style="display: inline-block; width: 25%; ">
+		<mat-form-field style="display: inline-block; width: 20%; ">
 				<mat-select #year="ngModel" matInput [(ngModel)]="paramType"  name="gradeLevel" placeholder="Search by"  required>
 					<mat-option value="LRN" selected>LRN</mat-option>
 					<mat-option value="Full Name">Full Name</mat-option>
@@ -11,10 +11,12 @@
 				</mat-select>
 		</mat-form-field>
 
-		<mat-form-field style="width: 75%;">
+		&nbsp;&nbsp;&nbsp;
+
+		<mat-form-field style="width: 65%;">
 			<input matInput [(ngModel)]="paramValue" name="paramValue" placeholder="Student's {{paramType}}" required>
 		</mat-form-field>
-
+		&nbsp;&nbsp;
 		<button class="btn-success" type="submit">Search</button>
 	</form> 
 

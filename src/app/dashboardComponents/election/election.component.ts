@@ -19,11 +19,9 @@ export class ElectionComponent implements OnInit {
   	this.election.getElection().subscribe(data => {
       this.electionData = data;
       this.electionResults = data.results;
-      console.log(data);
       this.hasNoElection = false;
       localStorage.setItem('hasNoElection', 'false');
-//set dito sa localstorge ug item from thw data na receive
-//remove this two func
+
       this.electionStarted = this.electionData.hasBegun;
       localStorage.setItem('electionStarted', this.electionStarted);
 
@@ -37,9 +35,7 @@ export class ElectionComponent implements OnInit {
 
       }
   	);
-// this.hasBegun();
-// this.hasEnded();
-   // this.isElectionEnded = false;
+
   }
 
   hasBegun(){
@@ -64,7 +60,6 @@ export class ElectionComponent implements OnInit {
 
   createElection(){
     this.election.createElection().subscribe(data => {
-      console.log(data); 
       localStorage.setItem('hasNoElection', 'false');
       this.hasNoElection = false;
       window.location.reload(true);
@@ -74,7 +69,6 @@ export class ElectionComponent implements OnInit {
 
   startElection(){
     this.election.startElection().subscribe(data => {
-      console.log(data);
       localStorage.setItem('electionStarted', 'true');
       this.electionStarted = true;
       window.location.reload(true);
@@ -84,7 +78,6 @@ export class ElectionComponent implements OnInit {
   electionResults; any;
   endElection(){
     this.election.endElection().subscribe(data => {
-      console.log(data);
       localStorage.setItem('isElectionEnded', 'true');
       this.isElectionEnded = true;
       this.electionData = data;
@@ -94,13 +87,12 @@ export class ElectionComponent implements OnInit {
 
   deleteDbElection(){
     this.election.deleteElection().subscribe(data => {
-      console.log(data);
       localStorage.setItem('electionStarted', 'false');
       localStorage.setItem('isElectionEnded', 'false');
       this.isElectionEnded = false;
       localStorage.setItem('hasNoElection', 'true');
       this.hasNoElection = true;
-      window.location.reload(true);
+      this.router.navigate(['/dashboard']);
     });
   }
 
