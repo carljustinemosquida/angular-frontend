@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   section:String; 
   authToken:any;
   theme:any;
+  bodytheme:any
   electionStatus:any;
   electionStarted: any;
 
@@ -25,9 +26,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   	this.section = '';
-    this.theme = true;
+    this.theme = false;
+    this.bodytheme = false;
     this.electionStarted = false;
     this.electionStatus = false;
+    this.onChange();
     this.electionRunning();
   }
 
@@ -46,9 +49,13 @@ export class HomeComponent implements OnInit {
 
   onChange() {
     if(this.theme == false){
+      this.bodytheme = true;
       this.theme = true;
+      document.body.style.backgroundColor = "#222";
     } else if(this.theme == true){
+      this.bodytheme = false;
       this.theme = false;
+      document.body.style.backgroundColor = "#FFF";
     }
   } 
 
@@ -64,7 +71,7 @@ export class HomeComponent implements OnInit {
     this.service.userChecker(user).subscribe(
       data => {
         localStorage.setItem('user_lrn', user.lrn);
-        this.notifier.notify('success',"Voter authenticated successfully ...");
+        this.notifier.notify('success',"Voter authenticated ...");
         this.service.storeToken(data.authToken);
         
         this.router.navigate(['/ballot']);
