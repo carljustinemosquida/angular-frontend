@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {NominateService} from '../../nominate.service';
 import {Nominee} from './nominee';
+import { NotifierService } from 'angular-notifier';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class NominateComponent implements OnInit {
   position:String;
 
 
-  constructor(private nominate: NominateService) { }
+  constructor(private nominate: NominateService, private notifier: NotifierService) { }
 
   ngOnInit() {
   }
@@ -33,7 +34,16 @@ export class NominateComponent implements OnInit {
       section: this.section,
       position: this.position
     }
-    this.nominate.addNominee(candidate).subscribe( data => console.log(data));
+    this.nominate.addNominee(candidate).subscribe( 
+      data => {
+        const message = 'Candidate ' + data.result.fullName + ' of ' + data.result.party + ' nominated as ' + data.result.position ;
+        this.notifier.notify('success', message);
+        console.log(data);
+      }, error => {
+        this.notifier.notify('error', 'Something went wrong');
+        this.notifier.notify('error', 'Please try again later');
+        console.log(error);
+      });
 
     nominateForm.resetForm();
 

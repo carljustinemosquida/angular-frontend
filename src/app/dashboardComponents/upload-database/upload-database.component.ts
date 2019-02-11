@@ -34,12 +34,12 @@ export class UploadDatabaseComponent implements OnInit {
         'Authorization': authToken
       })
     }
-
+    this.notifier.notify('info', 'Please wait for a moment...');
     this.http.post<any>('http://localhost:3000/api/voters/import', formData, httpOption)
       .subscribe(
-        data =>{
+        data => { 
           //console.log(data.result);
-          this.notifier.notify('success', data.message);
+          this.notifier.notify('success', 'Voters data successfully uploaded');
       }, err => {
           this.notifier.notify('error', err.error.message);
       }

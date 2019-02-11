@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Candidates } from './candidates';
 import {BallotfetchService} from '../ballotfetch.service';
 import {Router} from '@angular/router';
+import {BallotDialogComponent} from '../ballot-dialog/ballot-dialog.component';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+
 
 @Component({
   selector: 'app-ballot',
@@ -17,16 +20,16 @@ export class BallotComponent implements OnInit {
   auditor:any;
   treasurer:any;
   pio:any;
-  g7rep:any;
-  g8rep:any;
-  g9rep:any;
-  g10rep:any;
-  g11rep:any;
-  g12rep:any;
+  // g7rep:any;
+  // g8rep:any;
+  // g9rep:any;
+  // g10rep:any;
+  // g11rep:any;
+  // g12rep:any;
   
-  repList: number[] = [];
+  // repList: number[] = [];
 
-  constructor(private ballotfetch: BallotfetchService, private router: Router){}
+  constructor(private dialog: MatDialog, private ballotfetch: BallotfetchService, private router: Router){}
 
   ngOnInit() {
   	this.fetchCandidates();
@@ -38,37 +41,37 @@ export class BallotComponent implements OnInit {
   		  res => {
           this.data = res;
   		   	console.log(res);
-  		 }
-
-  		);
+  		 });
   }
 
-  onSubmitBallot(){
-    const voter = localStorage.getItem('user_lrn');
-    const voterId = parseInt(voter);
-    const voteList: number[] = [this.president, this.vicePresident, this.secretary, this.treasurer,this.auditor,this.pio];
-    const allVotes = voteList.concat(this.repList);
-    const votesData = {
-      voterLRN: voterId,
-      votes: allVotes
-    }
-    //return console.log(votesData);
+   openDialog() {
 
-    return this.ballotfetch.vote(votesData).subscribe(
-      data => {console.log(data.results.message);},
-      error => {console.log(error);}
-      );
-  }
+        const dialogConfig = new MatDialogConfig();
 
-  addLrnToArray(lrn, event){
-    if(event.checked){
-      this.repList.push(lrn);
-    } else {
-      let i = this.repList.indexOf(lrn);
-      this.repList.splice(i, 1);
-     }
+        dialogConfig.autoFocus = true;
 
-  }
+        const voter = localStorage.getItem('user_lrn');
+        const voterId = parseInt(voter);
+        const voteList: number[] = [this.president, this.vicePresident, this.secretary, this.treasurer,this.auditor,this.pio];
+        //const allVotes = voteList.concat(this.repList);
+       
+        dialogConfig.data = {
+            voterLRN: voterId,
+            votes: voteList
+        };
+
+        this.dialog.open(BallotDialogComponent, dialogConfig);
+   }
+
+  // addLrnToArray(lrn, event){
+  //   if(event.checked){
+  //     this.repList.push(lrn);
+  //   } else {
+  //     let i = this.repList.indexOf(lrn);
+  //     this.repList.splice(i, 1);
+  //    }
+  // }
 	
 }
 
+ 

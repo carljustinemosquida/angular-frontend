@@ -4,7 +4,7 @@ import {HomeService} from '../home.service';
 import {Router} from "@angular/router";
 import {NgForm} from '@angular/forms';
 import { NotifierService } from 'angular-notifier';
-
+import { ElectionService } from '../election.service';
 
 @Component({
   selector: 'app-home',
@@ -15,16 +15,34 @@ export class HomeComponent implements OnInit {
 	fullName:String;
 	lrn:any;
 	gradeLevel:any;
-  section:String;
+  section:String; 
   authToken:any;
   theme:any;
+  electionStatus:any;
+  electionStarted: any;
 
-  constructor(private service: HomeService, private router: Router, private notifier: NotifierService) { }
+  constructor(private service: HomeService, private election: ElectionService, private router: Router, private notifier: NotifierService) { }
 
   ngOnInit() {
   	this.section = '';
     this.theme = true;
+    this.electionStarted = false;
+    this.electionStatus = false;
+    this.electionRunning();
   }
+
+  electionRunning(){
+    this.election.getElection().subscribe( 
+      data => {
+          this.electionStatus = true;
+          if (data.hasBegun == true){
+            this.electionStarted = true;
+          } 
+      }, error => {
+
+      });
+  }
+
 
   onChange() {
     if(this.theme == false){
@@ -42,11 +60,13 @@ export class HomeComponent implements OnInit {
 		  gradeLevel: Number(this.gradeLevel),
 		  section: this.section.replace(/ /g,'').toLowerCase()
   	}
-
+     this.notifier.notify('info', 'Please wait for a moment')
     this.service.userChecker(user).subscribe(
       data => {
-        this.notifier.notify('success',"Waiting for Authentication ...");
+        localStorage.setItem('user_lrn', user.lrn);
+        this.notifier.notify('success',"Voter authenticated successfully ...");
         this.service.storeToken(data.authToken);
+        
         this.router.navigate(['/ballot']);
       }, error => {
         this.notifier.notify('success',"User Credentials Successfully Sended ");
@@ -55,11 +75,11 @@ export class HomeComponent implements OnInit {
         } else if(!error.error == null){
           this.notifier.notify('error', error.error.name);
         } else {
-          this.notifier.notify('error', 'Sorry, Please try again');
+          this.notifier.notify('error', error.error.message);
+          this.notifier.notify('error', 'Please try again later');
         }
       });  
 
-    localStorage.setItem('user_lrn', this.lrn);
     userForm.resetForm();
   }
 }

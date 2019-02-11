@@ -26,10 +26,10 @@ import { MatToolbarModule,
          MatNativeDateModule,
          MatCheckboxModule,
          MatSelectModule,
-         MatSlideToggleModule  } from '@angular/material';
+         MatSlideToggleModule,
+         MatDialogModule  } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -56,11 +56,11 @@ import {ElectionService} from './election.service';
 import {AuthGuard} from './guards/auth.guard';
 import {Auth2Guard} from './guards/auth2.guard';
 import {Auth3Guard} from './guards/auth3.guard';
+import { BallotDialogComponent } from './ballot-dialog/ballot-dialog.component';
 
 
 const appRoute: Routes = [
   {path:'', component:HomeComponent},
-  {path:'navbar', component:NavbarComponent},
   {path:'login', component:LoginComponent},
   {path: 'dashboard', 
    component:DashboardComponent, children: [    
@@ -75,16 +75,14 @@ const appRoute: Routes = [
       {path:'election', component: ElectionComponent}
     ], canActivate:[AuthGuard]
   },
-  {path:'ballot', component:BallotComponent},
-
+  {path:'ballot', component:BallotComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     RegisterComponent,
-    LoginComponent,
+    LoginComponent, 
     HomeComponent,
     DashboardComponent,
     DashboardHomeComponent,
@@ -99,10 +97,10 @@ const appRoute: Routes = [
     ChangePassComponent,
     TallyRowComponent,
     VoterPieChartComponent,
-    ElectionComponent
-
-
+    ElectionComponent,
+    BallotDialogComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -130,9 +128,11 @@ const appRoute: Routes = [
     MatNativeDateModule,
     MatCheckboxModule,
     MatSlideToggleModule,
-    NotifierModule 
+    NotifierModule,
+    MatDialogModule 
   ],
   providers: [BallotfetchService,AuthService,NominateService, HomeService, ElectionService, AuthGuard, Auth2Guard, Auth3Guard], 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [BallotDialogComponent]
 })
 export class AppModule { }

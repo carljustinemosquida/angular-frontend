@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import {NominateService} from '../../nominate.service';
 import {interval} from 'rxjs';
+import {NotifierService} from 'angular-notifier'
 
 export interface INominee {
   position: string;	
@@ -20,7 +21,7 @@ export class UpdateNomineeComponent implements OnInit {
   candidateData: any;
   interval;
 
-  constructor(private nominate: NominateService){
+  constructor(private nominate: NominateService, private notifier: NotifierService){
 
   } 
   
@@ -44,13 +45,27 @@ export class UpdateNomineeComponent implements OnInit {
       position: position
     }
    
-    this.nominate.updateNominee(candidate, id).subscribe(data => console.log(data));
-    this.onFetch();
+    this.nominate.updateNominee(candidate, id).subscribe(
+      data => {
+        this.notifier.notify('success', data.message);
+        this.onFetch();
+      }, error => {
+         this.notifier.notify('error', 'Something went wrong');
+       this.notifier.notify('error', 'Please try again');
+      });
+    
   }
 
   onDelete(id){
-   this.nominate.deleteNominee(id).subscribe(data => console.log(data));
-   this.onFetch();
+   this.nominate.deleteNominee(id).subscribe(
+     data => {
+       this.onFetch();
+       this.notifier.notify('success', 'Candidate deleted successfully');
+     }, error => {
+       this.notifier.notify('error', 'Something went wrong');
+       this.notifier.notify('error', 'Please try again');
+     });
+
   }
 
 }
