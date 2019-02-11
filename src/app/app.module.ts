@@ -121,7 +121,7 @@ const appRoute: Routes = [
     MatFormFieldModule ,
     MatPaginatorModule,
     MatTableModule,
-    NgxChartsModule,
+    NgxChartsModule, 
     MatRadioModule,
     HttpClientModule,
     MatSelectModule,

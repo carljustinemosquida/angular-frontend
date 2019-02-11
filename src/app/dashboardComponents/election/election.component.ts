@@ -94,6 +94,6 @@ export class ElectionComponent implements OnInit {
       this.hasNoElection = true;
       this.router.navigate(['/dashboard']);
     });
-  }
+  } 
 
 }

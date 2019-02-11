@@ -14,7 +14,7 @@ export class BallotDialogComponent implements OnInit {
 
   constructor(private router: Router, private ballotfetch: BallotfetchService,  @Inject(MAT_DIALOG_DATA) private data) {
   	
-   }
+   } 
 
   ngOnInit() {
   	
