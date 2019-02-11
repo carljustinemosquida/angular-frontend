@@ -61,6 +61,16 @@ export class AuthService {
     this.authToken = token;
   }
 
+  // LoggedIn(){
+  //   return this.jwtHelper.isTokenExpired('id_token');
+  // }
+
+  Logout(){
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
+  }
+
   changePass(data){
     const httpOptions = {
       headers: new HttpHeaders({
