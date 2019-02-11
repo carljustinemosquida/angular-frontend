@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +7,7 @@ import {Router} from '@angular/router';
 })
 export class DashboardComponent {
 	 
-  constructor(private router: Router){}
+  constructor(){}
 
   hasElection:any;
   isElectionStarted:any;
@@ -16,11 +15,6 @@ export class DashboardComponent {
   ngOnInit() {
     this.checkElection();
     this.checkElectionStarted();
-  }
-
-  logout() {
-    localStorage.clear();
-    this.router.navigate(['/']);
   }
 
   checkElection(){

@@ -70,6 +70,7 @@ export class HomeComponent implements OnInit {
      this.notifier.notify('info', 'Please wait for a moment')
     this.service.userChecker(user).subscribe(
       data => {
+        localStorage.setItem('user_name', data.da);
         localStorage.setItem('user_lrn', user.lrn);
         this.notifier.notify('success',"Voter authenticated ...");
         this.service.storeToken(data.authToken);
