@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.auth.storeToken(data.authToken);
         this.notifier.notify('success',"Session Authenticated");
-        this.router.navigate(['/dashboard/election']);
+        this.router.navigate(['/dashboard']);
     }, err => {
          this.notifier.notify('error',err.error);
     });

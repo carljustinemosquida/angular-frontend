@@ -26,6 +26,7 @@ export class BallotDialogComponent implements OnInit {
       data => {
         console.log(data);
         localStorage.clear();
+        localStorage.setItem('user_receipt', data._id);
       },
       error => {
         console.log(error);
