@@ -14,12 +14,18 @@ import {MatDialog, MatDialogConfig} from "@angular/material";
 
 export class BallotComponent implements OnInit {
   data:any;
+  user:any;
+  lrn:any;
   president:any;
   vicePresident:any;
   secretary:any;
   auditor:any;
   treasurer:any;
   pio:any;
+  po:any;
+  g9Chairman:any;
+  g10Chairman:any;
+  
   // g7rep:any;
   // g8rep:any;
   // g9rep:any;
@@ -33,7 +39,9 @@ export class BallotComponent implements OnInit {
 
   ngOnInit() {
   	this.fetchCandidates();
-  
+    this.lrn = localStorage.getItem('user_lrn');
+    this.user = localStorage.getItem('user_name');
+    
   }
   
   fetchCandidates(){
@@ -52,7 +60,7 @@ export class BallotComponent implements OnInit {
 
         const voter = localStorage.getItem('user_lrn');
         const voterId = parseInt(voter);
-        const voteList: number[] = [this.president, this.vicePresident, this.secretary, this.treasurer,this.auditor,this.pio];
+        const voteList: number[] = [this.president, this.vicePresident, this.secretary, this.treasurer,this.auditor,this.pio,this.po,this.g9Chairman, this.g10Chairman];
         //const allVotes = voteList.concat(this.repList);
        
         dialogConfig.data = {

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import {NominateService} from '../../nominate.service';
 import {interval} from 'rxjs';
-import {NotifierService} from 'angular-notifier'
+import {NotifierService} from 'angular-notifier';
 
 export interface INominee {
   position: string;	

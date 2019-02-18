@@ -18,7 +18,7 @@ export class HomeService {
   		})
   	}
 
-  	return this.http.post<any>('http://localhost:3000/api/voters/auth/', data, httpOptions).pipe();	
+  	return this.http.post<any>('api/voters/auth/', data, httpOptions).pipe();	
   }
 
   storeToken(token){

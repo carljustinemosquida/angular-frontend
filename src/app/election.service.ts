@@ -10,7 +10,7 @@ export class ElectionService {
   constructor(private http: HttpClient, private auth: AuthService) { }
 
   getElection(){
-  	return this.http.get<any>('http://localhost:3000/api/election/').pipe();
+  	return this.http.get<any>('api/election/').pipe();
   }
  
   createElection(){
@@ -20,7 +20,7 @@ export class ElectionService {
   	 		'Authorization' : authToken
   	 	})
   	 }
-  	  return this.http.post<any>('http://localhost:3000/api/election/createElection',null,httpOptions).pipe();
+  	  return this.http.post<any>('api/election/createElection',null,httpOptions).pipe();
   }
 
   startElection(){
@@ -30,7 +30,7 @@ export class ElectionService {
          'Authorization' : authToken
        })
      }
-    return this.http.put<any>('http://localhost:3000/api/election/beginElection',null,httpOptions).pipe();
+    return this.http.put<any>('api/election/beginElection',null,httpOptions).pipe();
   }
 
   endElection(){
@@ -40,7 +40,7 @@ export class ElectionService {
          'Authorization' : authToken
        })
      }
-  	return this.http.put<any>('http://localhost:3000/api/election/endElection',null,httpOptions).pipe();
+  	return this.http.put<any>('api/election/endElection',null,httpOptions).pipe();
 
   }
 
@@ -52,6 +52,6 @@ export class ElectionService {
   	 	})
     }
 
-    return this.http.delete<any>('http://localhost:3000/api/election/deleteElection',httpOptions).pipe();
+    return this.http.delete<any>('api/election/deleteElection',httpOptions).pipe();
   }
 }

@@ -46,7 +46,7 @@ export class ActivateComponent implements OnInit {
 		}
 
 		console.log(this.param);
-		return this.http.post<any>('http://localhost:3000/api/voters/searchVoter/',this.param, httpOptions)
+		return this.http.post<any>('api/voters/searchVoter/',this.param, httpOptions)
 			.pipe().subscribe(
 				(data) => {
 					if(data.length == 0){
@@ -75,7 +75,7 @@ export class ActivateComponent implements OnInit {
 		  'Authorization': authToken
 		})}
 
-		return this.http.put<any>('http://localhost:3000/api/voters/activateVoter/'+ voter.lrn, null, httpOptions).pipe().subscribe(
+		return this.http.put<any>('api/voters/activateVoter/'+ voter.lrn, null, httpOptions).pipe().subscribe(
 				data => {
 					if(data.canVote)
 						this.notifier.notify('success',"Voter Activated");

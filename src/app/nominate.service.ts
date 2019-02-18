@@ -18,7 +18,7 @@ export class NominateService {
         'Content-type': 'application/json'
       })
     }
-  return this.http.get<any>('http://localhost:3000/api/candidates',httpOptions).pipe();
+  return this.http.get<any>('api/candidates',httpOptions).pipe();
 
   }
 
@@ -31,7 +31,7 @@ export class NominateService {
       })
     }
     console.log(httpOptions);
-    return this.http.post<any>('http://localhost:3000/api/candidates/nominateCandidate', data, httpOptions).pipe();
+    return this.http.post<any>('api/candidates/nominateCandidate', data, httpOptions).pipe();
   }
 
   
@@ -43,7 +43,7 @@ export class NominateService {
         'Authorization': authToken
       })
     }
-    return this.http.put<any>(`http://localhost:3000/api/candidates/updateCandidate/${id}`, data,httpOptions).pipe();
+    return this.http.put<any>(`api/candidates/updateCandidate/${id}`, data,httpOptions).pipe();
 
   }
 
@@ -55,7 +55,7 @@ export class NominateService {
         'Authorization': authToken
       })
     }
-    const url = `http://localhost:3000/api/candidates/removeCandidate/${id}`;
+    const url = `api/candidates/removeCandidate/${id}`;
     return this.http.delete<any>(url,httpOptions).pipe();
 
   }

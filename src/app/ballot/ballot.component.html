@@ -1,59 +1,86 @@
-<div style="width: 100%; height: 100%; background-color: #222;">
-	<div style="width: 80%; margin: auto;">	
-		<br>
-		<mat-card style="background-color: black;  padding-top: 10%;">
-			<h1 style="text-align: center;">COMELEC BALLOT FORM</h1>
-			<p style="text-align: center;"><small>Please choose wisely!!!</small></p>
+<div style="width: 100%; height: 100%;  border-radius: 5px;"><br>
+	<div style="width: 80%;  background-color: #2e2e27; margin: auto;">	
+	
+		<mat-card style="  padding-top: 7%; ">
+			<br>
+			<h2 style="text-align: center;">Tanza National Trade School</h2>
+			<h2 style="text-align: center;">Supreme Student Government - Commission on Elections</h2>
+			<h1 style="text-align: center;">Official Voter's Ballot</h1>
 
-			<div style="width: 80%; margin: auto; background-color:black; color: white; ">
+			<p style="text-align: left; padding-left: 5%; float: left;"> Name: {{user}}</p>
+			<p style="text-align: right; padding-right: 5%; float: right;"> LRN: {{lrn}}</p>
+<br><br>
+			<div style="width: 80%; margin: auto; color: white; ">
 					<form  (submit)="openDialog()" >
 					<p>President</p>
 						<li style="list-style-type: none;" *ngFor="let p of data.presidents; index as i; ">
 							<mat-radio-group [(ngModel)]="president" name="president" #radioGroup="matRadioGroup">
-							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button> &nbsp;&nbsp;&nbsp; <span> ({{p.party}} Partylist)</span>
 							</mat-radio-group>
 						</li>	
 						<br>
 					<p>Vice President</p>	
 						<li style="list-style-type: none;" *ngFor="let p of data.vicePresidents; index as i; ">
 							<mat-radio-group [(ngModel)]="vicePresident" name="vicePresident" #radioGroup="matRadioGroup">
-							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>   &nbsp;&nbsp;&nbsp; <span> ({{p.party}} Partylist)</span>
 							</mat-radio-group>
 						</li>
 					<br>
 					<p>Secretary</p>
 						<li style="list-style-type: none;" *ngFor="let p of data.secretaries; index as i; ">
 							<mat-radio-group  [(ngModel)]="secretary" name="secretary" #radioGroup="matRadioGroup">
-							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>   &nbsp;&nbsp;&nbsp; <span> ({{p.party}} Partylist)</span>
 							</mat-radio-group>
 						</li>
 					<br>
 					<p>Auditor</p>
 						<li style="list-style-type: none;" *ngFor="let p of data.auditors; index as i; ">
 							<mat-radio-group [(ngModel)]="auditor" name="auditor" #radioGroup="matRadioGroup">
-							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>  &nbsp;&nbsp;&nbsp; <span> ({{p.party}} Partylist)</span>
 							</mat-radio-group>
 						</li>
 					<br>
 					<p>Treasurer</p>
 						<li style="list-style-type: none;" *ngFor="let p of data.treasurers; index as i; ">
 							<mat-radio-group [(ngModel)]="treasurer" name="treasurer" #radioGroup="matRadioGroup">
-							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>  &nbsp;&nbsp;&nbsp; <span> ({{p.party}} Partylist)</span>
 							</mat-radio-group>
 						</li>
 					<br>
 					<p>Public Information Officer</p>
 						<li style="list-style-type: none;" *ngFor="let p of data.pios; index as i; ">
 							<mat-radio-group [(ngModel)]="pio" name="pio" #radioGroup="matRadioGroup">
-							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>  &nbsp;&nbsp;&nbsp; <span>( {{p.party}} Partylist)</span>
+							</mat-radio-group>
+						</li>	
+					<br>
+					<p>Peace Officer</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.pos; index as i; ">
+							<mat-radio-group [(ngModel)]="po" name="po" #radioGroup="matRadioGroup">
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>  &nbsp;&nbsp;&nbsp; <span> ({{p.party}} Partylist)</span>
+							</mat-radio-group>
+						</li>	
+					<br>
+					<p>G9 Chairperson</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.g9Chairmans; index as i; ">
+							<mat-radio-group [(ngModel)]="g9Chairman" name="g9Chairman" #radioGroup="matRadioGroup">
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>  &nbsp;&nbsp;&nbsp; <span> ({{p.party}} Partylist)</span>
+							</mat-radio-group>
+						</li>	
+					<br>
+					<p>G10 Chairperson</p>
+						<li style="list-style-type: none;" *ngFor="let p of data.g10Chairmans; index as i; ">
+							<mat-radio-group [(ngModel)]="g10Chairman" name="g10Chairman" #radioGroup="matRadioGroup">
+							<mat-radio-button [value]="p.lrn">{{p.fullName}}</mat-radio-button>  &nbsp;&nbsp;&nbsp; <span> ({{p.party}} Partylist)</span>
 							</mat-radio-group>
 						</li>	
 					<br>
 	                <button style="display: block; width: 100%; background-color: green; color:white;"type="submit" mat-flat-button  >Submit</button>
 				</form>	
 			</div>
+			<br><br>
 		</mat-card>
-	</div> 	
+	</div> 	<br><br><br>
 </div>
 
 

@@ -71,6 +71,7 @@ export class HomeComponent implements OnInit {
     this.service.userChecker(user).subscribe(
       data => {
         localStorage.setItem('user_lrn', user.lrn);
+        localStorage.setItem('user_name', user.fullName);
         this.notifier.notify('success',"Voter authenticated ...");
         this.service.storeToken(data.authToken);
         

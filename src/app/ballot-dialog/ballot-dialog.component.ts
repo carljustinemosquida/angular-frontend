@@ -21,16 +21,11 @@ export class BallotDialogComponent implements OnInit {
   }
 
   loading(){
-    let time = 3;
-    let timer = setInterval( function() {
-      document.getElementById("loading").innerHTML = '<p style="text-align: center;"> Redirection in ' + time ;
-      time = time - 1;
+    
+     document.getElementById("loading").innerHTML = '<p style="text-align: center;"> You may now leave the election room. </p>';
+    this.redirect();
 
-      if(time == 0){
-        clearInterval(timer);
-        this.redirect();
-      }
-    }, 1000)
+    
   }
 
   redirect(){

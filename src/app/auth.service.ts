@@ -23,7 +23,7 @@ export class AuthService {
         'Content-type': 'application/json'
       })
     };
-    return this.http.post<IAuth>('http://localhost:3000/api/admin/', data, httpOptions).pipe();
+    return this.http.post<IAuth>('api/admin/', data, httpOptions).pipe();
   }
 
   isLogged(){
@@ -40,7 +40,7 @@ export class AuthService {
         'Content-type': 'application/json'
       })
     };
-    return this.http.post<any>('http://localhost:3000/api/admin/auth/', data, httpOptions).pipe();
+    return this.http.post<any>('api/admin/auth/', data, httpOptions).pipe();
   }
 
   storeToken(token){
@@ -69,7 +69,7 @@ export class AuthService {
       })
     };
 
-    return this.http.put<any>('http://localhost:3000/api/admin/changePass', data, httpOptions).pipe();
+    return this.http.put<any>('api/admin/changePass', data, httpOptions).pipe();
   }
 
 }

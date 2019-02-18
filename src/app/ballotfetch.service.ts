@@ -12,7 +12,7 @@ export class BallotfetchService {
   token = this.authService.returnUserToken();
 
   fetch(){
-    return this.http.get<any>('http://localhost:3000/api/candidates').pipe();
+    return this.http.get<any>('api/candidates').pipe();
   }
 
   vote(data){
@@ -22,7 +22,7 @@ export class BallotfetchService {
         'Authorization': this.token
       })
     };
-    return this.http.put<any>('http://localhost:3000/api/candidates/voteCandidates/',data,httpOptions).pipe();
+    return this.http.put<any>('api/candidates/voteCandidates/',data,httpOptions).pipe();
   }
 
   

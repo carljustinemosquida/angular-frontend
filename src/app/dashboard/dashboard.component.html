@@ -4,7 +4,6 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async) ">
     <!-- <mat-toolbar>Menu</mat-toolbar> -->
-
     <mat-card style="background-color: #33333d; border: 1px solid #33333d; box-shadow: 0px 5px 8px rgba(0, 0, 0, 0);">
         <mat-card-header  >
         <div mat-card-avatar class="pic"></div>
@@ -15,8 +14,9 @@
 
     <mat-nav-list color="primary">
      <a *ngIf="hasElection" mat-list-item [routerLink]="['/dashboard']"><mat-icon color="warn">dashboard</mat-icon> &nbsp;Home</a>
-     <a *ngIf="hasElection" mat-list-item [routerLink]="['/dashboard/tallyboard']" ><mat-icon color="warn"> bar_chart</mat-icon> &nbsp;TallyBoard</a> 
-     <a *ngIf="hasElection" mat-list-item [routerLink]="['/dashboard/activate']" ><mat-icon color="warn"> how_to_reg</mat-icon> &nbsp;Activate Voters</a>
+     <a *ngIf="hasElection" mat-list-item [routerLink]="['/dashboard/tallyboard']" ><mat-icon color="warn"> show_chart</mat-icon> &nbsp;TallyBoard</a> 
+     <a *ngIf="hasElection" mat-list-item [routerLink]="['/dashboard/activate']" ><mat-icon color="warn"> assignment_turned_in
+      </mat-icon> &nbsp;Activate Voters</a>
      <a *ngIf="hasElection && !isElectionStarted" mat-list-item [routerLink]="['/dashboard/nominate']" ><mat-icon color="warn"> create</mat-icon> &nbsp;Create Nominees</a>
      <a *ngIf="hasElection && !isElectionStarted" mat-list-item [routerLink]="['/dashboard/update-nominee']" ><mat-icon color="warn"> view_list</mat-icon> &nbsp;Update Nominees</a>
 

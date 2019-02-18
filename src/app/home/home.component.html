@@ -2,10 +2,10 @@
     <div *ngIf = " electionStarted; else notStarted">
     	 
 		  <mat-toolbar color="primary">
-			  <button mat-icon-button [matMenuTriggerFor]="menu">
+			  <button mat-icon-button [matMenuTriggerFor]="menu" >
 			    <mat-icon>sort</mat-icon>
 			  </button>
-			  <h5>DWYTE-VORTEX VOTING SYSTEM</h5>
+			  <h5>VORTEX DWYTE VOTING SYSTEM</h5>
 			  <span style="flex: 1 1 auto;"></span>
 			  <mat-slide-toggle (change)="onChange()" color="warn">
 				<span >
@@ -20,7 +20,7 @@
 		  	</mat-slide-toggle>
 		</mat-toolbar> 
 		<mat-menu #menu="matMenu">
-			<button mat-menu-item>
+			<button mat-menu-item [routerLink]="['/about']">
 				<mat-icon>dialpad</mat-icon>
 			    <span>About Us</span>
 			</button>
@@ -28,8 +28,8 @@
 
 			<div *ngIf= " bodytheme; else whitethemed">
 				<div style="width: auto;height: auto; ">
-					<div style="width: 50 float:left; ">
-						<mat-card style="width: 40%; height: 80%; float:left; margin: 5%; background-color: rgba(0,0,0,0.8); border: #d3d3d3 0.4px solid; border-radius: 3px;">
+					<div style="width: 50%; float:left; ">
+						<mat-card style="width: 80%; height: 80%; float:left; margin: 5%; background-color: rgba(0,0,0,0.8); border: #d3d3d3 0.4px solid; border-radius: 3px;">
 							<form (submit)="userForm.form.valid && onSubmit(userForm)" #userForm="ngForm" style="margin-left: 5%; margin-right: 5%;">
 								<br><br>
 
@@ -40,7 +40,7 @@
 								<br><br> 
 								
 								<mat-form-field style="width: 100%;">
-						    		<input matInput #name="ngModel" [(ngModel)]="fullName" name="fullName" placeholder="Name" required>
+						    		<input matInput #name="ngModel" [(ngModel)]="fullName" name="fullName" placeholder="Full Name" required>
 						    	</mat-form-field>
 						    	
 						    	<div *ngIf="userForm.submitted && name.invalid" class="btn-info">
@@ -97,7 +97,7 @@
 							</span>
 						</p>
 						<br><br>
-						<img src="assets/computer.png" width="100%;">
+						<img src="assets/computerw.png" width="100%;">
 					</div>
 				</div>
 			</div>
@@ -105,8 +105,8 @@
 			<ng-template #whitethemed>
 				<div style="width: 100%;height: 95%; ">
 					<div style="width: auto;height: auto; ">
-						<div style="width: 50 float:left; ">
-							<mat-card style="width: 40%; height: 80%; float:left; margin: 5%; background-color: rgba(0,0,0,0.8); border: #d3d3d3 0.4px solid; border-radius: 3px;">
+						<div style="width: 50%; float:left; ">
+							<mat-card style="width: 80%; height: 80%; float:left; margin: 5%; background-color: rgba(0,0,0,0.8); border: #d3d3d3 0.4px solid; border-radius: 3px;">
 								<form (submit)="userForm.form.valid && onSubmit(userForm)" #userForm="ngForm" style="margin-left: 5%; margin-right: 5%;">
 									<br><br>
 
@@ -117,7 +117,7 @@
 									<br><br> 
 									
 									<mat-form-field style="width: 100%;">
-							    		<input matInput #name="ngModel" [(ngModel)]="fullName" name="fullName" placeholder="Name" required>
+							    		<input matInput #name="ngModel" [(ngModel)]="fullName" name="fullName" placeholder="Full Name" required>
 							    	</mat-form-field>
 							    	
 							    	<div *ngIf="userForm.submitted && name.invalid" class="btn-info">
@@ -174,17 +174,17 @@
 								</span>
 							</p>
 							<br><br>
-							<img src="assets/computer.png" width="100%;">
+							<img src="assets/computerb.png" width="100%;">
 						</div>
 					</div>
 				</div>
 			</ng-template>
 	</div>
     <ng-template #notStarted>
-    	Election not started
+    	<h1 style="padding-top:30%; text-align:center; color: white">Election has not started. Please contact the Administrator.</h1>
     </ng-template>
 </div>
 
 <ng-template #noElection>
-	NO election contact admin
+	<h1 style="padding-top:30%; text-align:center; color:white;">No Election Found. Please contact the Administrator.</h1>
 </ng-template> 
